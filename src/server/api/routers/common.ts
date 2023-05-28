@@ -18,13 +18,15 @@ export const commonRouter = createTRPCRouter({
   //   return ctx.prisma.example.findMany();
   // }),
 
-  lastYearContribution: publicProcedure.query(async () => {
-    const profile_url =
-      "https://github-contributions-api.deno.dev/ScottWangVirgoCX.json";
+  lastYearContribution: publicProcedure
+    .input(z.object({ usrName: z.string() }))
+    .query(async ({input}) => {
+      const profile_url =
+        `https://github-contributions-api.deno.dev/${input.usrName}.json`;
 
-    const allContributionData = await (await fetch(profile_url)).json();
-    const formatedAllContributionData: LastYearContributionProps =
-      allContributionData;
-    return formatedAllContributionData.totalContributions;
-  }),
+      const allContributionData = await (await fetch(profile_url)).json();
+      const formatedAllContributionData: LastYearContributionProps =
+        allContributionData;
+      return formatedAllContributionData.totalContributions;
+    }),
 });

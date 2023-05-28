@@ -1,14 +1,30 @@
+import { useEffect } from "react";
 import { api } from "~/utils/api";
 
 const GithubInfo = () => {
-  const lastYearContribution:number = api.common.lastYearContribution.useQuery().data||0;
+  const workAccount = "ScottWangVirgoCX";
+  const personalAccount = "scottascott";
+  const ac = new AbortController();
+  const workAccountLastYearContribution: number =
+    api.common.lastYearContribution.useQuery({ usrName: workAccount }).data ||
+    0;
+  const personalAccountLastYearContribution: number =
+    api.common.lastYearContribution.useQuery({ usrName: personalAccount })
+      .data || 0;
+  useEffect(() => {
+    console.log(1);
+  }, [workAccountLastYearContribution, personalAccountLastYearContribution]);
   return (
     <div className="mx-auto w-full max-w-[1280px] bg-gray-50">
       {/* contributions */}
-      <p>{lastYearContribution ? lastYearContribution : "loading"}</p>
+      <p>
+        {workAccountLastYearContribution
+          ? workAccountLastYearContribution
+          : "loading"}
+      </p>
       {/* chart */}
       <img
-        src="https://ghchart.rshah.org/409ba5/ScottWangVirgoCX"
+        src={`https://ghchart.rshah.org/409ba5/${workAccount}`}
         alt="ScottWangVirgoCX's Github Chart"
       />
     </div>
