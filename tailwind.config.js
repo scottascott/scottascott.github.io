@@ -7,9 +7,6 @@ module.exports = {
           center: true,
       },
       extend: {
-          screens: {
-              sm: "600px",
-          },
 
           animation: {
               "bounce-once": "bounceOnce 1s",
