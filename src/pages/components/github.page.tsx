@@ -1,16 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "~/utils/api";
 
 const GithubInfo = () => {
   const workAccount = "ScottWangVirgoCX";
   const personalAccount = "scottascott";
-  const ac = new AbortController();
   const workAccountLastYearContribution: number =
-    api.common.lastYearContribution.useQuery({ usrName: workAccount }).data ||
-    0;
+    api.common.lastYearContribution.useQuery(
+      { usrName: workAccount },
+      { refetchOnWindowFocus: false }
+    ).data || 0;
   const personalAccountLastYearContribution: number =
-    api.common.lastYearContribution.useQuery({ usrName: personalAccount })
-      .data || 0;
+    api.common.lastYearContribution.useQuery(
+      { usrName: personalAccount },
+      { refetchOnWindowFocus: false }
+    ).data || 0;
   useEffect(() => {
     console.log(1);
   }, [workAccountLastYearContribution, personalAccountLastYearContribution]);
