@@ -23,7 +23,7 @@ const GithubInfo = () => {
       <p>
         {workAccountLastYearContribution
           ? workAccountLastYearContribution
-          : "loading"}
+          : "--"}
       </p>
       {/* chart */}
       <img

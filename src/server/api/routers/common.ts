@@ -14,10 +14,6 @@ export const commonRouter = createTRPCRouter({
       };
     }),
 
-  // getAll: publicProcedure.query(({ ctx }) => {
-  //   return ctx.prisma.example.findMany();
-  // }),
-
   lastYearContribution: publicProcedure
     .input(z.object({ usrName: z.string() }))
     .query(async ({input}) => {
