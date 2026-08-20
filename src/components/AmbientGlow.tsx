@@ -39,7 +39,7 @@ const blobs: Blob[] = [
   },
 ]
 
-export default function AmbientGlow() {
+export default function AmbientGlow({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
     const canvas = canvasRef.current
@@ -282,7 +282,7 @@ export default function AmbientGlow() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
+      className={`pointer-events-none absolute inset-0 h-full w-full opacity-90 ${className}`}
       aria-hidden="true"
     />
   )

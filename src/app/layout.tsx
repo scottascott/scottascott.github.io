@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${jetbrainsMono.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-ink-soft">
-        <div className="fixed inset-0 z-0">
+        <div className="fixed inset-0 z-0 sm:hidden">
           <AmbientGlow />
         </div>
         <SmoothScroll>
