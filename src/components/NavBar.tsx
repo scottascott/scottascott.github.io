@@ -1,27 +1,22 @@
-import Link from "next/link";
-
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/resume", label: "Resume" },
-  { href: "/projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function NavBar() {
   return (
-    <header className="border-b border-black/10 dark:border-white/10">
-      <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
-        <Link href="/" className="font-semibold tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5 sm:px-12">
+        <a href="#top" className="font-serif text-lg font-semibold text-ink">
           Scott Wang
-        </Link>
-        <ul className="flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+        </a>
+        <ul className="flex gap-6 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="transition-colors hover:text-foreground"
-              >
+              <a href={link.href} className="transition-colors hover:text-cyan">
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

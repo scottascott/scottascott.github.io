@@ -1,32 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const manrope = Manrope({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Scott Wang — Senior Frontend Developer",
+  title: "Scott Wang — Senior Software Engineer",
   description:
-    "Personal site for Scott Wang: resume, projects, and contact info.",
+    "Scott Wang — Senior Software Engineer. Frontend craft × full-stack engineering.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${jetbrainsMono.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col bg-bg text-ink-soft">
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />

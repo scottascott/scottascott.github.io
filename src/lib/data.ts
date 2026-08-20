@@ -1,48 +1,10 @@
 export const profile = {
   name: "Scott Wang",
-  title: "Senior Frontend Developer",
-  tagline: "Next.js · React · TypeScript · Tailwind",
   location: "Ottawa, Ontario, Canada",
   email: "scottwangg@gmail.com",
   linkedin: "https://www.linkedin.com/in/scott-wang-a1b129210",
-  github: "https://github.com/ScottWangVirgoCX",
   summary:
     "Frontend developer with 6+ years of experience building responsive, production web apps with React, Next.js, and TypeScript, plus backend services in Java, Node, and SQL/NoSQL databases. Comfortable owning a feature end-to-end, from interface design and SEO to typesafe APIs and deployment.",
-};
-
-export const skills = {
-  "Front-End": [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind CSS",
-    "HTML5 / CSS3",
-    "Bootstrap",
-    "Redux",
-    "Zustand",
-  ],
-  "Back-End & APIs": [
-    "Node.js",
-    "tRPC",
-    "GraphQL",
-    "RESTful APIs",
-    "Java",
-    "Spring Boot",
-    "Prisma",
-    "MySQL",
-    "SQL Server",
-    "MongoDB",
-  ],
-  "Tools & DevOps": [
-    "AWS (EC2)",
-    "Vercel",
-    "Netlify",
-    "Postman",
-    "Git",
-    "Chrome DevTools",
-    "CI/CD",
-  ],
 };
 
 export const experience = [
