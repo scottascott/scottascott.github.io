@@ -1,7 +1,8 @@
+import AmbientGlow from "@/components/AmbientGlow";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
-import AmbientGlow from "@/components/AmbientGlow";
+import Typewriter from "@/components/Typewriter";
 import { education, experience, profile, projects } from "@/lib/data";
 
 export default function Home() {
@@ -23,8 +24,7 @@ export default function Home() {
             Wang
           </Reveal>
           <Reveal className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
-            Frontend Craft <span className="text-cyan">×</span> Full-Stack
-            Engineering
+            <Typewriter />
           </Reveal>
           <div className="grid items-end gap-8 sm:grid-cols-[minmax(0,46ch)_auto] sm:gap-16">
             <Reveal className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
