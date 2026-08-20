@@ -1,5 +1,6 @@
 import AmbientGlow from "@/components/AmbientGlow";
 import Reveal from "@/components/Reveal";
+import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
 import { education, experience, profile, projects } from "@/lib/data";
 
@@ -58,9 +59,9 @@ export default function Home() {
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
         <div className="mb-14">
-          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
+          <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
             Experience
-          </h2>
+          </RevealText>
         </div>
         <div className="relative flex flex-col gap-14">
           <TimelineProgress />
@@ -102,9 +103,9 @@ export default function Home() {
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
         <div className="mb-14">
-          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
+          <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
             Projects
-          </h2>
+          </RevealText>
         </div>
         <div className="grid gap-7 sm:grid-cols-2">
           {projects.map((project) => (
@@ -156,9 +157,9 @@ export default function Home() {
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
         <div className="mb-14">
-          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
+          <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
             Contact
-          </h2>
+          </RevealText>
         </div>
         <div className="grid items-center gap-12 sm:grid-cols-[minmax(0,46ch)_auto]">
           <Reveal>
