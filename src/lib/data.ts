@@ -23,7 +23,7 @@ export const experience = [
   },
   {
     company: "Wuhan Duofen Art School",
-    role: "Frontend Developer",
+    role: "Full-Stack Developer",
     period: "January 2016 – May 2017",
     location: "Wuhan, Hubei, China",
     bullets: [
