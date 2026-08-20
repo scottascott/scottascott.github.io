@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "scottascott-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--cwd", "D:/Projects/scottascott.github.io"],
+      "port": 3000
+    }
+  ]
+}
