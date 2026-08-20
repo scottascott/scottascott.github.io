@@ -4,7 +4,7 @@ export const profile = {
   email: "scottwangg@gmail.com",
   linkedin: "https://www.linkedin.com/in/scott-wang-a1b129210",
   summary:
-    "Frontend developer with 6+ years of experience building responsive, production web apps with React, Next.js, and TypeScript, plus backend services in Java, Node, and SQL/NoSQL databases. Comfortable owning a feature end-to-end, from interface design and SEO to typesafe APIs and deployment.",
+    "Senior Software Engineer with 8+ years of experience building modern frontend and full-stack applications. Strong expertise in React, Next.js and TypeScript, with hands-on backend experience in Node.js, API development and relational databases. Experienced in production fintech and cryptocurrency platforms, including real-time trading, payments, digital wallets, KYC/KYB and compliance integrations. Focused on scalable architecture, performance, maintainability and production reliability.",
 };
 
 export const experience = [
@@ -14,26 +14,11 @@ export const experience = [
     period: "December 2021 – Present",
     location: "Toronto, Ontario, Canada",
     bullets: [
-      "Led a team building responsive websites for cryptocurrency exchanges using React.",
-      "Rebuilt marketing pages with Next.js, improving animation effects, interface design, and SEO.",
-      "Built a system for managing SSR SEO pages, using Prisma for coin data storage and tRPC for typesafe end-to-end APIs.",
-      "Contributed to the exchanges' mobile apps using React Native.",
-      "Maintained WordPress-based learn sites covering crypto news, guides, and trading strategies.",
-      "Integrated identity verification, address, push notification, and secure payment APIs.",
-      "Identified and resolved issues via static code analysis; contributed to a successful SOC audit.",
-    ],
-  },
-  {
-    company: "Quasi Group",
-    role: "Frontend Developer",
-    period: "June 2021 – October 2021",
-    location: "Ottawa, Ontario, Canada",
-    bullets: [
-      "Built an online email survey system with React on the front end and Express on the back end.",
-      "Implemented Google OAuth for secure customer login.",
-      "Used SendGrid for group emails and feedback collection via RESTful API.",
-      "Connected MongoDB to store customer account and survey data.",
-      "Integrated Redux with thunk middleware for asynchronous state management.",
+      "Led development of production fintech and cryptocurrency applications across consumer trading, B2B payments, and wealth management platforms using React, Next.js, and TypeScript.",
+      "Built real-time trading and asset-management experiences using React, WebSocket, and TradingView, supporting live market data, order books, trading, digital wallets, and portfolio management.",
+      "Integrated internal and third-party APIs across authentication, KYC/KYB, payments, notifications, and compliance workflows, including transaction risk monitoring and review processes.",
+      "Built data-driven Next.js applications with server-side rendering and SEO optimization, using Prisma and SQLite to manage cryptocurrency content, market data, and structured metadata.",
+      "Led frontend architecture across multiple products, establishing reusable components and shared patterns while contributing to backend integrations, Redis caching, CI/CD, and AWS deployment workflows.",
     ],
   },
   {
@@ -42,10 +27,11 @@ export const experience = [
     period: "January 2016 – May 2017",
     location: "Wuhan, Hubei, China",
     bullets: [
-      "Built the school's WordPress website: news, forums, online courses, and a tutoring schedule.",
-      "Built a companion Android app with PhoneGap, including a tuning helper and study notes.",
-      "Used Yoast SEO, Hotjar, WP Mail SMTP, and Contact Form 7 to extend site functionality.",
-      "Connected the WordPress API to a Java Spring Boot RESTful API for data exchange.",
+      "Developed and maintained a full-stack education platform supporting news, online courses, forums, tutoring schedules, contact workflows and student-facing services.",
+      "Built responsive frontend interfaces and Node.js / Express backend services connected through RESTful APIs.",
+      "Developed backend functionality for content management, scheduling, email workflows and application data exchange.",
+      "Integrated WordPress as part of the content-management system while extending platform functionality through custom frontend and backend services.",
+      "Built a hybrid Android application using PhoneGap and implemented SEO, analytics, email delivery and user-engagement functionality.",
     ],
   },
   {

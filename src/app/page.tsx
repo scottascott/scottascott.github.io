@@ -60,13 +60,10 @@ export default function Home() {
         id="experience"
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
-        <div className="mb-14 flex flex-wrap items-baseline justify-between gap-8">
+        <div className="mb-14">
           <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
             Experience
           </h2>
-          <span className="font-mono text-xs tracking-[0.16em] text-ink-muted uppercase">
-            01 &mdash; 0{experience.length}
-          </span>
         </div>
         <div className="relative flex flex-col gap-14">
           <div className="pointer-events-none absolute top-2 bottom-2 left-[5px] hidden w-px bg-gradient-to-b from-cyan to-amber opacity-40 sm:block" />
