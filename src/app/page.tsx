@@ -10,7 +10,7 @@ export default function Home() {
         className="relative flex min-h-screen flex-col justify-center overflow-hidden border-b border-line px-6 py-24 sm:px-12 lg:px-24"
       >
         <AmbientGlow />
-        <div className="relative z-10 max-w-[1040px]">
+        <div className="relative z-10 mx-auto max-w-[1040px]">
           <p className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
             <span className="h-px w-7 bg-amber" />
             Senior Software Engineer
@@ -49,10 +49,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="absolute bottom-10 left-6 z-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase sm:left-12 lg:left-24">
-          <span className="h-8 w-px bg-gradient-to-b from-ink-muted to-transparent" />
-          Scroll
         </div>
       </div>
 
@@ -104,13 +100,10 @@ export default function Home() {
         id="projects"
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
-        <div className="mb-14 flex flex-wrap items-baseline justify-between gap-8">
+        <div className="mb-14">
           <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
             Projects
           </h2>
-          <span className="font-mono text-xs tracking-[0.16em] text-ink-muted uppercase">
-            Selected
-          </span>
         </div>
         <div className="grid gap-7 sm:grid-cols-2">
           {projects.map((project) => (
@@ -160,13 +153,10 @@ export default function Home() {
         id="contact"
         className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
       >
-        <div className="mb-14 flex flex-wrap items-baseline justify-between gap-8">
+        <div className="mb-14">
           <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold text-ink italic">
             Contact
           </h2>
-          <span className="font-mono text-xs tracking-[0.16em] text-ink-muted uppercase">
-            Say hello
-          </span>
         </div>
         <div className="grid items-center gap-12 sm:grid-cols-[minmax(0,46ch)_auto]">
           <Reveal>
