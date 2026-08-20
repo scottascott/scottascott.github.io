@@ -66,7 +66,7 @@ export default function Home() {
           {experience.map((job) => (
             <Reveal key={job.company}>
               <div className="relative grid gap-2 border-l border-line pl-6 sm:grid-cols-[minmax(0,220px)_minmax(0,1fr)] sm:gap-10 sm:border-0 sm:pl-11">
-                <span className="absolute top-1.5 left-0 hidden h-[11px] w-[11px] -translate-x-1/2 rounded-full border-[1.5px] border-cyan bg-bg sm:block" />
+                <span className="absolute top-1.5 left-0 hidden h-[11px] w-[11px] rounded-full border-[1.5px] border-cyan bg-bg sm:block" />
                 <div className="flex flex-col gap-1">
                   <span className="font-serif text-2xl text-ink">
                     {job.company}
