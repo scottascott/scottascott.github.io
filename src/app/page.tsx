@@ -1,5 +1,6 @@
 import AmbientGlow from "@/components/AmbientGlow";
 import Reveal from "@/components/Reveal";
+import TimelineProgress from "@/components/TimelineProgress";
 import { education, experience, profile, projects } from "@/lib/data";
 
 export default function Home() {
@@ -62,7 +63,7 @@ export default function Home() {
           </h2>
         </div>
         <div className="relative flex flex-col gap-14">
-          <div className="pointer-events-none absolute top-2 bottom-2 left-[5px] hidden w-px bg-gradient-to-b from-cyan to-amber opacity-40 sm:block" />
+          <TimelineProgress />
           {experience.map((job) => (
             <Reveal key={job.company}>
               <div className="relative grid gap-2 border-l border-line pl-6 sm:grid-cols-[minmax(0,220px)_minmax(0,1fr)] sm:gap-10 sm:border-0 sm:pl-11">
@@ -112,16 +113,17 @@ export default function Home() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+                className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
               >
-                <div
-                  className="relative flex aspect-[16/10] items-end border-b border-line p-4"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
-                  }}
-                >
-                  <span className="rounded-full border border-line-strong px-3 py-1 font-mono text-[10.5px] tracking-[0.14em] text-ink-muted uppercase">
+                <div className="relative flex aspect-[16/10] items-end overflow-hidden border-b border-line p-4">
+                  <div
+                    className="absolute inset-0 scale-100 transition-transform duration-500 ease-out group-hover:scale-105"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
+                    }}
+                  />
+                  <span className="relative rounded-full border border-line-strong px-3 py-1 font-mono text-[10.5px] tracking-[0.14em] text-ink-muted uppercase">
                     Preview video coming soon
                   </span>
                 </div>

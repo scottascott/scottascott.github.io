@@ -33,6 +33,7 @@ export default function AmbientGlow() {
     ).matches;
 
     let frame = 0;
+    let scrollY = window.scrollY;
 
     function resize() {
       if (!canvas || !wrap) return;
@@ -41,6 +42,11 @@ export default function AmbientGlow() {
     }
     resize();
     window.addEventListener("resize", resize);
+
+    function onScroll() {
+      scrollY = window.scrollY;
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     function draw(t: number) {
       if (!canvas || !ctx) return;
@@ -51,7 +57,7 @@ export default function AmbientGlow() {
           ? 0
           : Math.cos(t * b.speed * 0.8 + b.phase) * b.amp;
         const cx = (b.x + dx) * canvas.width;
-        const cy = (b.y + dy) * canvas.height;
+        const cy = (b.y + dy) * canvas.height + scrollY * 0.15;
         const r = b.r * Math.max(canvas.width, canvas.height);
         const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
         g.addColorStop(0, `rgba(${b.color},0.22)`);
@@ -65,6 +71,7 @@ export default function AmbientGlow() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(frame);
     };
   }, []);
