@@ -1,4 +1,3 @@
-import AmbientGlow from "@/components/AmbientGlow";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
@@ -11,7 +10,6 @@ export default function Home() {
         id="top"
         className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-24 sm:px-12 lg:px-24"
       >
-        <AmbientGlow />
         <div className="relative z-10 mx-auto max-w-[1040px]">
           <Reveal className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
             <span className="h-px w-7 bg-amber" />
