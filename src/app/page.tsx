@@ -9,28 +9,28 @@ export default function Home() {
     <>
       <div
         id="top"
-        className="relative flex min-h-screen flex-col justify-center overflow-hidden border-b border-line px-6 py-24 sm:px-12 lg:px-24"
+        className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-24 sm:px-12 lg:px-24"
       >
         <AmbientGlow />
         <div className="relative z-10 mx-auto max-w-[1040px]">
-          <p className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
+          <Reveal className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
             <span className="h-px w-7 bg-amber" />
             Senior Software Engineer
-          </p>
-          <h1 className="mb-6 text-balance font-serif text-[clamp(3.4rem,9vw,7.2rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-ink">
+          </Reveal>
+          <Reveal className="mb-6 text-balance font-serif text-[clamp(3.4rem,9vw,7.2rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-ink">
             Scott
             <br />
             Wang
-          </h1>
-          <p className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
+          </Reveal>
+          <Reveal className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
             Frontend Craft <span className="text-cyan">×</span> Full-Stack
             Engineering
-          </p>
+          </Reveal>
           <div className="grid items-end gap-8 sm:grid-cols-[minmax(0,46ch)_auto] sm:gap-16">
-            <p className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
+            <Reveal className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
               {profile.summary}
-            </p>
-            <div className="min-w-[260px] rounded border border-line bg-panel/55 p-6 backdrop-blur-xl">
+            </Reveal>
+            <Reveal className="min-w-[260px] rounded border border-line bg-panel/55 p-6 backdrop-blur-xl">
               <p className="mb-4 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                 Education
               </p>
@@ -49,7 +49,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

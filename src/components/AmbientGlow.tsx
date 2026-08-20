@@ -41,7 +41,6 @@ const blobs: Blob[] = [
 
 export default function AmbientGlow() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-
   useEffect(() => {
     const canvas = canvasRef.current
     const wrap = canvas?.parentElement
