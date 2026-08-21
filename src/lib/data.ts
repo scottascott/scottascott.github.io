@@ -16,11 +16,11 @@ export const experience = [
     period: "December 2021 – Present",
     location: "Toronto, Ontario, Canada",
     bullets: [
-      "Led development of production fintech and cryptocurrency applications across consumer trading, B2B payments, and wealth management platforms using React, Next.js, and TypeScript.",
-      "Built real-time trading and asset-management experiences using React, WebSocket, and TradingView, supporting live market data, order books, trading, digital wallets, and portfolio management.",
-      "Integrated internal and third-party APIs across authentication, KYC/KYB, payments, notifications, and compliance workflows, including transaction risk monitoring and review processes.",
-      "Built data-driven Next.js applications with server-side rendering and SEO optimization, using Prisma and SQLite to manage cryptocurrency content, market data, and structured metadata.",
-      "Led frontend architecture across multiple products, establishing reusable components and shared patterns while contributing to backend integrations, Redis caching, CI/CD, and AWS deployment workflows.",
+      "Led frontend development across production fintech products spanning cryptocurrency trading, payments, digital wallets, and wealth management using React, Next.js, and TypeScript.",
+      "Built real-time trading experiences with WebSocket and TradingView, including live market data, order books, interactive charts, trading workflows, and portfolio tracking.",
+      "Developed wallet and payment experiences covering deposits, withdrawals, transaction history, address management, and real-time asset valuation.",
+      "Integrated internal and third-party services for authentication, KYC/KYB, payments, notifications, and compliance, including transaction risk monitoring and manual review workflows.",
+      "Built data-driven Next.js applications with SSR and dynamic SEO, and contributed to shared frontend architecture, backend integrations, caching, CI/CD, and AWS deployment.",
     ],
   },
   {
@@ -29,11 +29,10 @@ export const experience = [
     period: "January 2016 – May 2017",
     location: "Wuhan, Hubei, China",
     bullets: [
-      "Developed and maintained a full-stack education platform supporting news, online courses, forums, tutoring schedules, contact workflows and student-facing services.",
-      "Built responsive frontend interfaces and Node.js / Express backend services connected through RESTful APIs.",
-      "Developed backend functionality for content management, scheduling, email workflows and application data exchange.",
-      "Integrated WordPress as part of the content-management system while extending platform functionality through custom frontend and backend services.",
-      "Built a hybrid Android application using PhoneGap and implemented SEO, analytics, email delivery and user-engagement functionality.",
+      "Developed a full-stack education platform supporting online courses, school content, tutoring schedules, forums, and student services.",
+      "Built responsive web interfaces and Node.js / Express backend services, designing RESTful APIs for content, scheduling, contact, and application workflows.",
+      "Integrated WordPress for content management while extending the platform with custom frontend and backend functionality.",
+      "Built a hybrid mobile application with PhoneGap and implemented SEO, analytics, email delivery, and user engagement features.",
     ],
   },
   {
@@ -42,11 +41,9 @@ export const experience = [
     period: "November 2013 – November 2015",
     location: "Shanghai, China",
     bullets: [
-      "Built a BIDW report generator for West Bend to support data-driven decision-making.",
-      "Built a staff management system for Taiping Insurance with a clean front/back-end split.",
-      "Designed dimensional data models integrating ERP databases and Excel via Informatica Power Center.",
-      "Used Tableau to build a drag-and-combine custom report interface.",
-      "Wrote a Java program to extract and process staff data from Excel files.",
+      "Developed enterprise reporting and internal business applications for clients in the insurance and financial services sectors.",
+      "Built data processing and reporting solutions integrating enterprise databases, Excel-based data sources, and ETL workflows.",
+      "Developed internal management and analytics tools using Java, Informatica PowerCenter, and Tableau, supporting operational reporting and business decision-making.",
     ],
   },
 ];
