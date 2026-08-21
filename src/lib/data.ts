@@ -5,6 +5,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/scott-wang-a1b129210",
   githubPersonal: "https://github.com/scottascott",
   githubWork: "https://github.com/ScottWangVirgoCX",
+  resumeUrl: "/Scott-Wang-Resume.pdf",
   summary:
     "Senior Software Engineer with 8+ years of experience building production web applications. I specialize in React, Next.js and TypeScript, with a strong focus on complex frontend systems and full-stack product development. ",
   summary2: "From real-time trading and digital wallets to payments and compliance platforms, I build software that is fast, reliable and designed to scale.",

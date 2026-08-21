@@ -283,6 +283,18 @@ export default function Home() {
                   {profile.githubWork.replace(/^https?:\/\/(www\.)?/, "")}
                 </span>
               </a>
+              <a
+                href={profile.resumeUrl}
+                download
+                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+              >
+                <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+                  Resume <span aria-hidden="true">↓</span>
+                </span>
+                <span className="text-right text-sm text-ink-soft group-hover:text-cyan">
+                  Download PDF
+                </span>
+              </a>
             </div>
           </Reveal>
         </div>

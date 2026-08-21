@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLenis } from "lenis/react";
+import { profile } from "@/lib/data";
 
 const links = [
   { href: "#experience", label: "Experience" },
@@ -34,19 +35,28 @@ export default function NavBar() {
             className="h-9 w-9 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
           />
         </a>
-        <ul className="flex gap-6 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className="transition-colors hover:text-cyan"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-6">
+          <ul className="flex gap-6 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  className="transition-colors hover:text-cyan"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={profile.resumeUrl}
+            download
+            className="rounded-full border border-line-strong px-3.5 py-1.5 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase transition-colors hover:border-cyan hover:text-cyan"
+          >
+            Resume ↓
+          </a>
+        </div>
       </nav>
     </header>
   );
