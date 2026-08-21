@@ -65,7 +65,7 @@ export const education = [
 
 export const projects = [
   {
-    name: "crypto-view",
+    name: "Crypto View",
     description:
       "A crypto price tracker and dashboard for browsing cryptocurrency prices and market data.",
     url: "https://crypto-view-git-main-scottascotts-projects.vercel.app/",
@@ -73,11 +73,19 @@ export const projects = [
     video: "/videos/crypto-view.mp4",
   },
   {
-    name: "concentration",
+    name: "Concentration",
     description:
       "A concentration-style memory matching card game built as a fun side project.",
     url: "https://concentration-puce.vercel.app/",
     tags: ["React"],
     video: "/videos/concentration.mp4",
+  },
+  {
+    name: "Crypto Shiba Run",
+    description:
+      "A crypto-themed endless runner — dodge candlestick obstacles as a shiba inu to grow your portfolio, Chrome-dino style.",
+    url: "https://shiba-run.netlify.app/",
+    tags: ["React", "Canvas"],
+    video: "/videos/shiba-run.mp4",
   },
 ];
