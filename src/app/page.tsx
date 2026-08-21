@@ -1,5 +1,6 @@
 import AmbientGlow from "@/components/AmbientGlow";
 import ColorBends from "@/components/ColorBends";
+import LazyVideo from "@/components/LazyVideo";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
@@ -166,17 +167,18 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
               >
-                <div className="relative flex aspect-[16/10] items-end overflow-hidden border-b border-line p-4">
+                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line">
                   <div
-                    className="absolute inset-0 scale-100 transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="absolute inset-0"
                     style={{
                       background:
                         "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
                     }}
                   />
-                  <span className="relative rounded-full border border-line-strong px-3 py-1 font-mono text-[10.5px] tracking-[0.14em] text-ink-muted uppercase">
-                    Preview video coming soon
-                  </span>
+                  <LazyVideo
+                    src={project.video}
+                    className="relative h-full w-full scale-100 object-contain mix-blend-screen transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
                 </div>
                 <div className="px-6 pt-6 pb-7">
                   <h3 className="mb-2.5 font-serif text-2xl text-ink">
