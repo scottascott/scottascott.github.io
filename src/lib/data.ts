@@ -6,7 +6,8 @@ export const profile = {
   githubPersonal: "https://github.com/scottascott",
   githubWork: "https://github.com/ScottWangVirgoCX",
   summary:
-    "Senior Software Engineer with 8+ years of experience building modern frontend and full-stack applications. Strong expertise in React, Next.js and TypeScript, with hands-on backend experience in Node.js, API development and relational databases. Experienced in production fintech and cryptocurrency platforms, including real-time trading, payments, digital wallets, KYC/KYB and compliance integrations. Focused on scalable architecture, performance, maintainability and production reliability.",
+    "Senior Software Engineer with 8+ years of experience building production web applications. I specialize in React, Next.js and TypeScript, with a strong focus on complex frontend systems and full-stack product development. ",
+  summary2: "From real-time trading and digital wallets to payments and compliance platforms, I build software that is fast, reliable and designed to scale.",
 };
 
 export const experience = [

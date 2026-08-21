@@ -1,10 +1,10 @@
 import AmbientGlow from "@/components/AmbientGlow";
 import ColorBends from "@/components/ColorBends";
+import FeatureRotator from "@/components/FeatureRotator";
 import LazyVideo from "@/components/LazyVideo";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
-import Typewriter from "@/components/Typewriter";
 import { education, experience, profile, projects } from "@/lib/data";
 
 export default function Home() {
@@ -15,70 +15,81 @@ export default function Home() {
         className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-24 sm:px-12 lg:px-24 sm:border-b sm:border-line"
       >
         <AmbientGlow className="max-sm:hidden" />
-        <div className="relative z-10 mx-auto max-w-[1040px]">
-          <Reveal className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
-            <span className="h-px w-7 bg-amber" />
-            Senior Software Engineer
-          </Reveal>
-          <Reveal className="relative mb-6 w-fit text-balance font-serif text-[clamp(5.5rem,10vw,8.5rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-transparent">
-            SCOTT
-            <br />
-            WANG
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0"
-              style={{
-                top: "-0.3em",
-                bottom: "-0.3em",
-                WebkitMaskImage: "url(#name-mask)",
-                maskImage: "url(#name-mask)",
-              }}
-            >
-              <ColorBends className="h-full w-full" />
+        <div className="relative z-10 mx-auto max-w-[1040px] lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)] lg:items-end lg:gap-16">
+          <div>
+            <Reveal className="mb-7 flex items-center gap-3 font-mono text-[12.5px] tracking-[0.22em] text-amber uppercase">
+              <span className="h-px w-7 bg-amber" />
+              Senior Software Engineer
+            </Reveal>
+            <Reveal className="relative mb-6 w-fit text-balance font-serif text-[clamp(5.5rem,10vw,8.5rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-transparent">
+              SCOTT
+              <br />
+              WANG
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0"
+                style={{
+                  top: "-0.3em",
+                  bottom: "-0.3em",
+                  WebkitMaskImage: "url(#name-mask)",
+                  maskImage: "url(#name-mask)",
+                }}
+              >
+                <ColorBends className="h-full w-full" />
+              </div>
+              <svg width="0" height="0" className="absolute">
+                <defs>
+                  <mask id="name-mask" maskContentUnits="objectBoundingBox">
+                    <rect width="1" height="1" fill="black" />
+                    <svg
+                      x="0"
+                      y="0"
+                      width="1"
+                      height="1"
+                      viewBox="0 0 148 134"
+                      preserveAspectRatio="none"
+                      overflow="visible"
+                    >
+                      <text
+                        x="0"
+                        y="57"
+                        fontFamily="var(--font-serif)"
+                        fontWeight="600"
+                        fontSize="36"
+                        fill="white"
+                      >
+                        SCOTT
+                      </text>
+                      <text
+                        x="0"
+                        y="106"
+                        fontFamily="var(--font-serif)"
+                        fontWeight="600"
+                        fontSize="36"
+                        fill="white"
+                      >
+                        WANG
+                      </text>
+                    </svg>
+                  </mask>
+                </defs>
+              </svg>
+            </Reveal>
+            <Reveal className="max-w-[38ch]">
+              <FeatureRotator />
+            </Reveal>
+          </div>
+          <Reveal className="mt-10 max-w-[46ch] lg:mt-0">
+
+            <div className="mt-7 max-sm:pt-4 max-sm:border-t sm:border-l sm:pl-5 border-cyan/25">
+              <p className="text-[0.98rem] leading-[1.8] text-ink-muted">
+                {profile.summary}
+              </p>
+
+              <p className="mt-4 text-[0.98rem] leading-[1.8] text-ink-muted">
+                {profile.summary2}
+              </p>
             </div>
-            <svg width="0" height="0" className="absolute">
-              <defs>
-                <mask id="name-mask" maskContentUnits="objectBoundingBox">
-                  <rect width="1" height="1" fill="black" />
-                  <svg
-                    x="0"
-                    y="0"
-                    width="1"
-                    height="1"
-                    viewBox="0 0 148 134"
-                    preserveAspectRatio="none"
-                    overflow="visible"
-                  >
-                    <text
-                      x="0"
-                      y="57"
-                      fontFamily="var(--font-serif)"
-                      fontWeight="600"
-                      fontSize="36"
-                      fill="white"
-                    >
-                      SCOTT
-                    </text>
-                    <text
-                      x="0"
-                      y="106"
-                      fontFamily="var(--font-serif)"
-                      fontWeight="600"
-                      fontSize="36"
-                      fill="white"
-                    >
-                      WANG
-                    </text>
-                  </svg>
-                </mask>
-              </defs>
-            </svg>
-          </Reveal>
-          <Reveal className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
-            <Typewriter />
-          </Reveal>
-          <Reveal className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
-            {profile.summary}
           </Reveal>
         </div>
       </div>
