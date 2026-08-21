@@ -246,6 +246,32 @@ export default function Home() {
                   {profile.linkedin.replace(/^https?:\/\/(www\.)?/, "")}
                 </span>
               </a>
+              <a
+                href={profile.githubPersonal}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+              >
+                <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+                  GitHub <span className="text-[9px]">Personal</span>
+                </span>
+                <span className="text-right text-sm break-words text-ink-soft group-hover:text-cyan">
+                  {profile.githubPersonal.replace(/^https?:\/\/(www\.)?/, "")}
+                </span>
+              </a>
+              <a
+                href={profile.githubWork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+              >
+                <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+                  GitHub <span className="text-[9px]">VirgoCX Work</span>
+                </span>
+                <span className="text-right text-sm break-words text-ink-soft group-hover:text-amber">
+                  {profile.githubWork.replace(/^https?:\/\/(www\.)?/, "")}
+                </span>
+              </a>
             </div>
           </Reveal>
         </div>

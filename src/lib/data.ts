@@ -3,6 +3,8 @@ export const profile = {
   location: "Ottawa, Ontario, Canada",
   email: "scottwangg@gmail.com",
   linkedin: "https://www.linkedin.com/in/scott-wang-a1b129210",
+  githubPersonal: "https://github.com/scottascott",
+  githubWork: "https://github.com/ScottWangVirgoCX",
   summary:
     "Senior Software Engineer with 8+ years of experience building modern frontend and full-stack applications. Strong expertise in React, Next.js and TypeScript, with hands-on backend experience in Node.js, API development and relational databases. Experienced in production fintech and cryptocurrency platforms, including real-time trading, payments, digital wallets, KYC/KYB and compliance integrations. Focused on scalable architecture, performance, maintainability and production reliability.",
 };
