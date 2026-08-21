@@ -107,7 +107,7 @@ export default function Home() {
 
       <section
         id="experience"
-        className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
+        className="mx-auto max-w-[1200px] overflow-x-hidden px-6 py-28 sm:overflow-x-visible sm:px-12 lg:px-24"
       >
         <div className="mb-14">
           <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
@@ -151,7 +151,7 @@ export default function Home() {
 
       <section
         id="projects"
-        className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
+        className="mx-auto max-w-[1200px] overflow-x-hidden px-6 py-28 sm:overflow-x-visible sm:px-12 lg:px-24"
       >
         <div className="mb-14">
           <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
@@ -206,7 +206,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className="mx-auto max-w-[1200px] px-6 py-28 sm:px-12 lg:px-24"
+        className="mx-auto max-w-[1200px] overflow-x-hidden px-6 py-28 sm:overflow-x-visible sm:px-12 lg:px-24"
       >
         <div className="mb-14">
           <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
