@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${fraunces.variable} ${jetbrainsMono.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-bg text-ink-soft">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-bg text-ink-soft">
         <div className="fixed inset-0 z-0 sm:hidden">
           <AmbientGlow />
         </div>
