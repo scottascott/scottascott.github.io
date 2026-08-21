@@ -20,9 +20,9 @@ export default function Home() {
             Senior Software Engineer
           </Reveal>
           <Reveal className="relative mb-6 w-fit text-balance font-serif text-[clamp(5.5rem,10vw,8.5rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-transparent">
-            Scott
+            SCOTT
             <br />
-            Wang
+            WANG
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0"
@@ -53,20 +53,20 @@ export default function Home() {
                       y="57"
                       fontFamily="var(--font-serif)"
                       fontWeight="600"
-                      fontSize="54"
+                      fontSize="36"
                       fill="white"
                     >
-                      Scott
+                      SCOTT
                     </text>
                     <text
                       x="0"
                       y="106"
                       fontFamily="var(--font-serif)"
                       fontWeight="600"
-                      fontSize="54"
+                      fontSize="36"
                       fill="white"
                     >
-                      Wang
+                      WANG
                     </text>
                   </svg>
                 </mask>
