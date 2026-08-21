@@ -232,67 +232,80 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal>
-            <div className="min-w-[300px] overflow-hidden rounded border border-line bg-panel/55 backdrop-blur-xl">
+            <div className="grid min-w-[280px] gap-3 sm:grid-cols-2">
               <a
                 href={`mailto:${profile.email}`}
-                className="group flex items-baseline justify-between gap-6 px-6 py-5 transition-colors hover:bg-panel/90"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   Email
                 </span>
-                <span className="text-right text-sm text-ink-soft group-hover:text-cyan">
-                  {profile.email}
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
+                  Write me ↗
                 </span>
               </a>
+
               <a
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   LinkedIn
                 </span>
-                <span className="text-right text-sm break-words text-ink-soft group-hover:text-amber">
-                  {profile.linkedin.replace(/^https?:\/\/(www\.)?/, "")}
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-amber">
+                  View profile ↗
                 </span>
               </a>
+
               <a
                 href={profile.githubPersonal}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
-                  GitHub <span className="text-[9px]">Personal</span>
+                  GitHub
+                  <span className="ml-1 text-[9px] normal-case tracking-normal">
+                    Personal
+                  </span>
                 </span>
-                <span className="text-right text-sm break-words text-ink-soft group-hover:text-cyan">
-                  {profile.githubPersonal.replace(/^https?:\/\/(www\.)?/, "")}
+
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
+                  Open ↗
                 </span>
               </a>
+
               <a
                 href={profile.githubWork}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
-                  GitHub <span className="text-[9px]">VirgoCX Work</span>
+                  GitHub
+                  <span className="ml-1 text-[9px] normal-case tracking-normal">
+                    VirgoCX Work
+                  </span>
                 </span>
-                <span className="text-right text-sm break-words text-ink-soft group-hover:text-amber">
-                  {profile.githubWork.replace(/^https?:\/\/(www\.)?/, "")}
+
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-amber">
+                  Open ↗
                 </span>
               </a>
+
               <a
                 href={profile.resumeUrl}
                 download
-                className="group flex items-baseline justify-between gap-6 border-t border-line px-6 py-5 transition-colors hover:bg-panel/90"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80 sm:col-span-2"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
-                  Resume <span aria-hidden="true">↓</span>
+                  Resume
                 </span>
-                <span className="text-right text-sm text-ink-soft group-hover:text-cyan">
-                  Download PDF
+
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
+                  Download PDF ↓
                 </span>
               </a>
             </div>
