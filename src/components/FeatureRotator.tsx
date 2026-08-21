@@ -10,7 +10,7 @@ const features = [
   },
   {
     title: "Full-Stack Products",
-    stack: "Node.js · APIs · PostgreSQL",
+    stack: "Node.js · APIs · SQL/NoSQL",
     description: "Production-ready applications from UI to backend.",
   },
   {
@@ -22,7 +22,7 @@ const features = [
 
 const TYPE_SPEED = 25;
 const DELETE_SPEED = 25;
-const PAUSE_MS = 3800;
+const PAUSE_MS = 2800;
 
 export default function FeatureRotator({
   className = "",

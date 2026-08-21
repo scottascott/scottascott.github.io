@@ -67,9 +67,9 @@ export const projects = [
   {
     name: "crypto-view",
     description:
-      "A crypto price tracker and dashboard for browsing real-time cryptocurrency prices and market data.",
+      "A crypto price tracker and dashboard for browsing cryptocurrency prices and market data.",
     url: "https://crypto-view-git-main-scottascotts-projects.vercel.app/",
-    tags: ["Next.js", "React", "tRPC", "Prisma"],
+    tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
   },
   {
