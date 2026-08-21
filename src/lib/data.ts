@@ -69,7 +69,7 @@ export const projects = [
       "A crypto price tracker and dashboard for browsing real-time cryptocurrency prices and market data.",
     url: "https://crypto-view-git-main-scottascotts-projects.vercel.app/",
     tags: ["Next.js", "React", "tRPC", "Prisma"],
-    video: "/videos/crypto-view.mov",
+    video: "/videos/crypto-view.mp4",
   },
   {
     name: "concentration",
@@ -77,6 +77,6 @@ export const projects = [
       "A concentration-style memory matching card game built as a fun side project.",
     url: "https://concentration-puce.vercel.app/",
     tags: ["React"],
-    video: "/videos/concentration.mov",
+    video: "/videos/concentration.mp4",
   },
 ];
