@@ -1,4 +1,5 @@
 import AmbientGlow from "@/components/AmbientGlow";
+import ColorBends from "@/components/ColorBends";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
