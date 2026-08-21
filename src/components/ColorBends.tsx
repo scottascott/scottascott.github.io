@@ -627,7 +627,7 @@ export default function SoftBends({
     // -------------------------
 
     const clock =
-      new THREE.Timer()
+      new THREE.Clock()
 
     const animate = () => {
       const dt =
