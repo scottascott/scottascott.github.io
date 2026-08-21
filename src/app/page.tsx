@@ -228,8 +228,7 @@ export default function Home() {
         <div className="grid items-center gap-12 sm:grid-cols-[minmax(0,46ch)_auto]">
           <Reveal>
             <p className="text-balance font-serif text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.35] font-medium text-ink-muted italic">
-              <span className="inline-block animate-bounce">OPEN</span> to new opportunities and conversations about frontend
-              craft and full-stack engineering.
+              <span className="inline-block animate-bounce">OPEN</span> to senior frontend and full-stack engineering opportunities.
             </p>
           </Reveal>
           <Reveal>
