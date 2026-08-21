@@ -1,17 +1,16 @@
 "use client"
 
 import React, { useEffect, useRef } from "react"
-// Three.js types are unavailable in the current project configuration.
-// @ts-expect-error TS7016: no declaration file for module "three"
+// three does not currently provide declarations in this project.
+// @ts-expect-error Missing declaration file for module "three".
 import * as THREE from "three"
 
-type ColorBendsProps = {
+type SoftBendsProps = {
   className?: string
   style?: React.CSSProperties
 
-  rotation?: number
   speed?: number
-
+  rotation?: number
   autoRotate?: number
 
   scale?: number
@@ -24,7 +23,16 @@ type ColorBendsProps = {
   noise?: number
 }
 
-const frag = `
+const vertexShader = `
+varying vec2 vUv;
+
+void main() {
+  vUv = uv;
+  gl_Position = vec4(position, 1.0);
+}
+`
+
+const fragmentShader = `
 uniform vec2 uCanvas;
 uniform float uTime;
 uniform float uSpeed;
@@ -46,22 +54,19 @@ varying vec2 vUv;
 void main() {
   float t = uTime * uSpeed;
 
-  // -----------------------------
-  // normalized coordinates
-  // -----------------------------
+  // --------------------------------
+  // Base coordinates
+  // --------------------------------
 
   vec2 p = vUv * 2.0 - 1.0;
 
-  // subtle pointer parallax
-  p += uPointer * uParallax * 0.08;
+  p += uPointer * uParallax * 0.035;
 
-  // rotation
   vec2 rp = vec2(
     p.x * uRot.x - p.y * uRot.y,
     p.x * uRot.y + p.y * uRot.x
   );
 
-  // correct aspect ratio
   vec2 q = vec2(
     rp.x * (uCanvas.x / uCanvas.y),
     rp.y
@@ -69,203 +74,221 @@ void main() {
 
   q /= max(uScale, 0.0001);
 
-  // slight lens / bend
-  q /= 0.65 + 0.18 * dot(q, q);
+  // Very subtle lens distortion
+  q /= 0.82 + 0.10 * dot(q, q);
 
-  // motion
-  q.x += sin(t * 0.7) * 0.35;
-  q.y += cos(t * 0.45) * 0.08;
+  // Slow autonomous drift
+  q.x += sin(t * 0.55) * 0.16;
+  q.y += cos(t * 0.38) * 0.035;
 
-  // -----------------------------
-  // pointer influence
-  // -----------------------------
+  // --------------------------------
+  // Mouse influence
+  // --------------------------------
 
   vec2 toward = uPointer - rp;
 
-  q += toward * uMouseInfluence * 0.12;
+  q += toward * uMouseInfluence * 0.055;
 
-  // -----------------------------
-  // curve field
-  // -----------------------------
-
-  vec2 s = q;
+  // --------------------------------
+  // Organic deformation
+  // --------------------------------
 
   vec2 wave = sin(
-    1.6 * (s.yx * uFrequency)
-    + 2.2 * cos(s * uFrequency + t * 0.35)
+    1.35 * (q.yx * uFrequency)
+    + 1.6 * cos(q * uFrequency + t * 0.24)
   );
 
-  float warpAmount = clamp(uWarpStrength, 0.0, 2.0);
-
   vec2 warped =
-    s +
-    (wave - s) *
-    warpAmount *
-    0.55;
+    q +
+    (wave - q) *
+    uWarpStrength *
+    0.18;
 
-  // -----------------------------
-  // upper curve
-  // -----------------------------
+  // --------------------------------
+  // Upper amber ribbon
+  // --------------------------------
 
-  float upperShape =
-    length(
-      warped +
-      sin(
-        4.8 * warped.y * uFrequency
-        - 2.4 * t
-      ) / 4.2
+  float upperWave =
+    sin(
+      warped.x * 2.0 +
+      t * 0.72
+    ) * 0.11
+    +
+    sin(
+      warped.x * 0.75 -
+      t * 0.28
+    ) * 0.055;
+
+  float upperCenter =
+    0.30 +
+    upperWave;
+
+  float upperDist =
+    abs(
+      warped.y -
+      upperCenter
     );
 
-  upperShape += warped.y * 0.42;
-
-  float upperMask =
+  // Narrow band
+  float upperCore =
     1.0 -
     smoothstep(
-      0.05,
-      0.52,
-      upperShape
+      0.025,
+      0.105,
+      upperDist
     );
 
-  // -----------------------------
-  // lower curve
-  // -----------------------------
-
-  vec2 lower = warped;
-
-  lower.x += 0.15;
-
-  float lowerShape =
-    length(
-      lower +
-      sin(
-        5.2 * lower.y * uFrequency
-        - 2.15 * t
-        + 2.1
-      ) / 4.0
-    );
-
-  lowerShape -= lower.y * 0.38;
-
-  float lowerMask =
+  // Soft outer glow
+  float upperGlow =
     1.0 -
     smoothstep(
-      0.06,
-      0.53,
-      lowerShape
+      0.04,
+      0.23,
+      upperDist
     );
 
-  // -----------------------------
-  // theme colors
-  // -----------------------------
+  // --------------------------------
+  // Lower cyan ribbon
+  // --------------------------------
 
-  // amber
+  float lowerWave =
+    sin(
+      warped.x * 1.65 -
+      t * 0.58 +
+      1.8
+    ) * 0.12
+    +
+    cos(
+      warped.x * 0.62 +
+      t * 0.24
+    ) * 0.045;
+
+  float lowerCenter =
+    -0.31 +
+    lowerWave;
+
+  float lowerDist =
+    abs(
+      warped.y -
+      lowerCenter
+    );
+
+  float lowerCore =
+    1.0 -
+    smoothstep(
+      0.025,
+      0.105,
+      lowerDist
+    );
+
+  float lowerGlow =
+    1.0 -
+    smoothstep(
+      0.04,
+      0.23,
+      lowerDist
+    );
+
+  // --------------------------------
+  // Soft theme colors
+  // --------------------------------
+
+  vec3 white = vec3(1.0);
+
+  // Soft amber
   vec3 amber = vec3(
     0.961,
     0.620,
     0.043
   );
 
-  // lighter amber edge
-  vec3 amberLight = vec3(
-    0.984,
-    0.749,
-    0.141
-  );
-
-  // cyan
+  // Soft cyan
   vec3 cyan = vec3(
     0.024,
     0.714,
     0.831
   );
 
-  // lighter cyan edge
-  vec3 cyanLight = vec3(
-    0.133,
-    0.827,
-    0.933
-  );
-
-  // -----------------------------
-  // color variation
-  // -----------------------------
-
-  float amberMix =
-    0.5 +
-    0.5 *
-    sin(
-      warped.x * 2.5 +
-      t * 0.45
-    );
-
-  float cyanMix =
-    0.5 +
-    0.5 *
-    cos(
-      warped.x * 2.2 -
-      t * 0.35
-    );
-
-  vec3 upperColor =
+  // Move both colors strongly toward white.
+  vec3 softAmber =
     mix(
+      white,
       amber,
-      amberLight,
-      amberMix * 0.45
+      0.38
     );
 
-  vec3 lowerColor =
+  vec3 softCyan =
     mix(
+      white,
       cyan,
-      cyanLight,
-      cyanMix * 0.45
+      0.34
     );
 
-  // -----------------------------
-  // white background
-  // -----------------------------
+  // --------------------------------
+  // Compose
+  // --------------------------------
 
-  vec3 bg = vec3(1.0);
+  vec3 col = white;
 
-  vec3 col = bg;
-
-  // Blend amber upper curve
+  // Glow is intentionally very faint
   col = mix(
     col,
-    upperColor,
-    clamp(upperMask, 0.0, 1.0)
+    softAmber,
+    upperGlow * 0.13
   );
 
-  // Blend cyan lower curve
   col = mix(
     col,
-    lowerColor,
-    clamp(lowerMask, 0.0, 1.0)
+    softCyan,
+    lowerGlow * 0.12
   );
 
-  // -----------------------------
-  // overlap glow
-  // -----------------------------
+  // Core gets slightly more color
+  col = mix(
+    col,
+    softAmber,
+    upperCore * 0.28
+  );
 
-  float overlap =
-    upperMask *
-    lowerMask;
+  col = mix(
+    col,
+    softCyan,
+    lowerCore * 0.26
+  );
 
-  vec3 overlapColor =
+  // --------------------------------
+  // Edge fade
+  // Keep more whitespace
+  // --------------------------------
+
+  float horizontalFade =
+    smoothstep(
+      1.45,
+      0.72,
+      abs(rp.x)
+    );
+
+  float verticalFade =
+    smoothstep(
+      1.05,
+      0.58,
+      abs(rp.y)
+    );
+
+  float fade =
+    horizontalFade *
+    verticalFade;
+
+  col =
     mix(
-      amber,
-      cyan,
-      0.5
+      white,
+      col,
+      fade
     );
 
-  col = mix(
-    col,
-    overlapColor,
-    overlap * 0.22
-  );
-
-  // -----------------------------
-  // subtle noise
-  // -----------------------------
+  // --------------------------------
+  // Very subtle grain
+  // --------------------------------
 
   if (uNoise > 0.0001) {
     float n =
@@ -273,7 +296,7 @@ void main() {
         sin(
           dot(
             gl_FragCoord.xy +
-            vec2(uTime * 20.0),
+            vec2(uTime * 5.0),
             vec2(
               12.9898,
               78.233
@@ -287,88 +310,73 @@ void main() {
       (n - 0.5) *
       uNoise;
 
-    col = clamp(
-      col,
-      0.0,
-      1.0
-    );
+    col =
+      clamp(
+        col,
+        0.0,
+        1.0
+      );
   }
 
-  gl_FragColor = vec4(
-    col,
-    1.0
-  );
+  gl_FragColor =
+    vec4(
+      col,
+      1.0
+    );
 }
 `
 
-const vert = `
-varying vec2 vUv;
-
-void main() {
-  vUv = uv;
-
-  gl_Position = vec4(
-    position,
-    1.0
-  );
-}
-`
-
-export default function ColorBends({
+export default function SoftBends({
   className = "",
   style,
 
+  speed = 0.45,
   rotation = 0,
-  speed = 0.65,
+  autoRotate = 0.25,
 
-  autoRotate = 1.2,
+  scale = 1.15,
+  frequency = 0.9,
+  warpStrength = 0.65,
 
-  scale = 1.05,
-  frequency = 1.1,
-  warpStrength = 1.05,
+  mouseInfluence = 0.5,
+  parallax = 0.25,
 
-  mouseInfluence = 0.65,
-  parallax = 0.35,
-
-  noise = 0.015,
-}: ColorBendsProps) {
+  noise = 0.006,
+}: SoftBendsProps) {
   const containerRef =
     useRef<HTMLDivElement | null>(
-      null,
+      null
     )
 
   const rendererRef =
     useRef<THREE.WebGLRenderer | null>(
-      null,
+      null
     )
 
   const materialRef =
     useRef<THREE.ShaderMaterial | null>(
-      null,
+      null
     )
 
   const rafRef =
     useRef<number | null>(
-      null,
+      null
     )
 
   const resizeObserverRef =
     useRef<ResizeObserver | null>(
-      null,
+      null
     )
 
   const pointerTargetRef =
     useRef(
-      new THREE.Vector2(0, 0),
+      new THREE.Vector2(0, 0)
     )
 
   const pointerCurrentRef =
     useRef(
-      new THREE.Vector2(0, 0),
+      new THREE.Vector2(0, 0)
     )
-
-  const pointerSmoothRef =
-    useRef(5)
 
   const rotationRef =
     useRef(rotation)
@@ -382,10 +390,6 @@ export default function ColorBends({
 
     if (!container) return
 
-    // -----------------------------
-    // scene
-    // -----------------------------
-
     const scene =
       new THREE.Scene()
 
@@ -396,27 +400,26 @@ export default function ColorBends({
         1,
         -1,
         0,
-        1,
+        1
       )
 
     const geometry =
       new THREE.PlaneGeometry(
         2,
-        2,
+        2
       )
 
     const material =
       new THREE.ShaderMaterial({
-        vertexShader: vert,
-
-        fragmentShader: frag,
+        vertexShader,
+        fragmentShader,
 
         uniforms: {
           uCanvas: {
             value:
               new THREE.Vector2(
                 1,
-                1,
+                1
               ),
           },
 
@@ -432,7 +435,7 @@ export default function ColorBends({
             value:
               new THREE.Vector2(
                 1,
-                0,
+                0
               ),
           },
 
@@ -453,7 +456,7 @@ export default function ColorBends({
             value:
               new THREE.Vector2(
                 0,
-                0,
+                0
               ),
           },
 
@@ -478,14 +481,10 @@ export default function ColorBends({
     const mesh =
       new THREE.Mesh(
         geometry,
-        material,
+        material
       )
 
     scene.add(mesh)
-
-    // -----------------------------
-    // renderer
-    // -----------------------------
 
     const renderer =
       new THREE.WebGLRenderer({
@@ -505,14 +504,13 @@ export default function ColorBends({
       Math.min(
         window.devicePixelRatio ||
         1,
-        2,
-      ),
+        2
+      )
     )
 
-    // white background
     renderer.setClearColor(
       0xffffff,
-      1,
+      1
     )
 
     renderer.domElement.style.width =
@@ -525,60 +523,61 @@ export default function ColorBends({
       "block"
 
     container.appendChild(
-      renderer.domElement,
+      renderer.domElement
     )
 
-    // -----------------------------
-    // resize
-    // -----------------------------
-
-    const handleResize = () => {
-      const w =
+    const resize = () => {
+      const width =
         container.clientWidth || 1
 
-      const h =
-        container.clientHeight ||
-        1
+      const height =
+        container.clientHeight || 1
 
       renderer.setSize(
-        w,
-        h,
-        false,
+        width,
+        height,
+        false
       )
 
         ; (
-          material.uniforms.uCanvas
+          material.uniforms
+            .uCanvas
             .value as THREE.Vector2
-        ).set(w, h)
+        ).set(
+          width,
+          height
+        )
     }
 
-    handleResize()
+    resize()
 
     if (
       "ResizeObserver" in window
     ) {
       const observer =
         new ResizeObserver(
-          handleResize,
+          resize
         )
 
-      observer.observe(container)
+      observer.observe(
+        container
+      )
 
       resizeObserverRef.current =
         observer
     } else {
-      globalThis.addEventListener(
+      (window as Window).addEventListener(
         "resize",
-        handleResize,
+        resize
       )
     }
 
-    // -----------------------------
-    // pointer
-    // -----------------------------
+    // -------------------------
+    // Mouse
+    // -------------------------
 
     const handlePointerMove = (
-      event: PointerEvent,
+      event: PointerEvent
     ) => {
       const rect =
         container.getBoundingClientRect()
@@ -601,7 +600,7 @@ export default function ColorBends({
 
       pointerTargetRef.current.set(
         x,
-        y,
+        y
       )
     }
 
@@ -609,35 +608,36 @@ export default function ColorBends({
       () => {
         pointerTargetRef.current.set(
           0,
-          0,
+          0
         )
       }
 
     container.addEventListener(
       "pointermove",
-      handlePointerMove,
+      handlePointerMove
     )
 
     container.addEventListener(
       "pointerleave",
-      handlePointerLeave,
+      handlePointerLeave
     )
 
-    // -----------------------------
-    // animation
-    // -----------------------------
+    // -------------------------
+    // Animation
+    // -------------------------
 
     const clock =
       new THREE.Clock()
 
-    const loop = () => {
+    const animate = () => {
       const dt =
         clock.getDelta()
 
       const elapsed =
         clock.elapsedTime
 
-      material.uniforms.uTime.value =
+      material.uniforms
+        .uTime.value =
         elapsed
 
       const deg =
@@ -646,65 +646,69 @@ export default function ColorBends({
         elapsed
 
       const rad =
-        (deg * Math.PI) / 180
+        (deg * Math.PI) /
+        180
 
-      const c =
+      const cos =
         Math.cos(rad)
 
-      const s =
+      const sin =
         Math.sin(rad)
 
         ; (
-          material.uniforms.uRot
+          material.uniforms
+            .uRot
             .value as THREE.Vector2
-        ).set(c, s)
+        ).set(
+          cos,
+          sin
+        )
 
-      // smooth mouse movement
+      // Smooth / weighted pointer
       const current =
         pointerCurrentRef.current
 
       const target =
         pointerTargetRef.current
 
-      const amount =
-        Math.min(
-          1,
-          dt *
-          pointerSmoothRef.current,
-        )
-
       current.lerp(
         target,
-        amount,
+        Math.min(
+          1,
+          dt * 4
+        )
       )
 
         ; (
-          material.uniforms.uPointer
+          material.uniforms
+            .uPointer
             .value as THREE.Vector2
-        ).copy(current)
+        ).copy(
+          current
+        )
 
       renderer.render(
         scene,
-        camera,
+        camera
       )
 
       rafRef.current =
-        requestAnimationFrame(loop)
+        requestAnimationFrame(
+          animate
+        )
     }
 
     rafRef.current =
-      requestAnimationFrame(loop)
-
-    // -----------------------------
-    // cleanup
-    // -----------------------------
+      requestAnimationFrame(
+        animate
+      )
 
     return () => {
       if (
         rafRef.current !== null
       ) {
         cancelAnimationFrame(
-          rafRef.current,
+          rafRef.current
         )
       }
 
@@ -715,18 +719,18 @@ export default function ColorBends({
       } else {
         window.removeEventListener(
           "resize",
-          handleResize,
+          resize
         )
       }
 
       container.removeEventListener(
         "pointermove",
-        handlePointerMove,
+        handlePointerMove
       )
 
       container.removeEventListener(
         "pointerleave",
-        handlePointerLeave,
+        handlePointerLeave
       )
 
       geometry.dispose()
@@ -741,15 +745,11 @@ export default function ColorBends({
         container
       ) {
         container.removeChild(
-          renderer.domElement,
+          renderer.domElement
         )
       }
     }
   }, [])
-
-  // -----------------------------
-  // update props
-  // -----------------------------
 
   useEffect(() => {
     const material =
@@ -763,29 +763,36 @@ export default function ColorBends({
     autoRotateRef.current =
       autoRotate
 
-    material.uniforms.uSpeed.value =
+    material.uniforms
+      .uSpeed.value =
       speed
 
-    material.uniforms.uScale.value =
+    material.uniforms
+      .uScale.value =
       scale
 
-    material.uniforms.uFrequency.value =
+    material.uniforms
+      .uFrequency.value =
       frequency
 
-    material.uniforms.uWarpStrength.value =
+    material.uniforms
+      .uWarpStrength.value =
       warpStrength
 
-    material.uniforms.uMouseInfluence.value =
+    material.uniforms
+      .uMouseInfluence.value =
       mouseInfluence
 
-    material.uniforms.uParallax.value =
+    material.uniforms
+      .uParallax.value =
       parallax
 
-    material.uniforms.uNoise.value =
+    material.uniforms
+      .uNoise.value =
       noise
   }, [
-    rotation,
     speed,
+    rotation,
     autoRotate,
     scale,
     frequency,

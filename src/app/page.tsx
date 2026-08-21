@@ -19,10 +19,59 @@ export default function Home() {
             <span className="h-px w-7 bg-amber" />
             Senior Software Engineer
           </Reveal>
-          <Reveal className="mb-6 text-balance font-serif text-[clamp(3.4rem,9vw,7.2rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-ink">
+          <Reveal className="relative mb-6 w-fit text-balance font-serif text-[clamp(5.5rem,10vw,8.5rem)] leading-[0.94] font-semibold tracking-[-0.015em] text-transparent">
             Scott
             <br />
             Wang
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0"
+              style={{
+                top: "-0.3em",
+                bottom: "-0.3em",
+                WebkitMaskImage: "url(#name-mask)",
+                maskImage: "url(#name-mask)",
+              }}
+            >
+              <ColorBends className="h-full w-full" />
+            </div>
+            <svg width="0" height="0" className="absolute">
+              <defs>
+                <mask id="name-mask" maskContentUnits="objectBoundingBox">
+                  <rect width="1" height="1" fill="black" />
+                  <svg
+                    x="0"
+                    y="0"
+                    width="1"
+                    height="1"
+                    viewBox="0 0 148 134"
+                    preserveAspectRatio="none"
+                    overflow="visible"
+                  >
+                    <text
+                      x="0"
+                      y="57"
+                      fontFamily="var(--font-serif)"
+                      fontWeight="600"
+                      fontSize="54"
+                      fill="white"
+                    >
+                      Scott
+                    </text>
+                    <text
+                      x="0"
+                      y="106"
+                      fontFamily="var(--font-serif)"
+                      fontWeight="600"
+                      fontSize="54"
+                      fill="white"
+                    >
+                      Wang
+                    </text>
+                  </svg>
+                </mask>
+              </defs>
+            </svg>
           </Reveal>
           <Reveal className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
             <Typewriter />
