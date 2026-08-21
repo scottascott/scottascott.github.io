@@ -77,31 +77,9 @@ export default function Home() {
           <Reveal className="mb-10 max-w-[34ch] text-[clamp(1.15rem,2.1vw,1.55rem)] leading-snug font-medium text-ink-soft">
             <Typewriter />
           </Reveal>
-          <div className="grid items-end gap-8 sm:grid-cols-[minmax(0,46ch)_auto] sm:gap-16">
-            <Reveal className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
-              {profile.summary}
-            </Reveal>
-            <Reveal className="min-w-[260px] rounded border border-line bg-panel/55 p-6 backdrop-blur-xl">
-              <p className="mb-4 font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
-                Education
-              </p>
-              <div className="flex flex-col gap-3">
-                {education.map((item) => (
-                  <div key={item.school}>
-                    <span className="block font-serif text-base text-ink">
-                      {item.school}
-                    </span>
-                    <span className="mt-0.5 block text-[12.5px] text-ink-muted">
-                      {item.degree}
-                    </span>
-                    <span className="block text-[12.5px] text-ink-muted">
-                      {item.period}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
+          <Reveal className="max-w-[46ch] text-[1.02rem] leading-[1.75] text-ink-muted">
+            {profile.summary}
+          </Reveal>
         </div>
       </div>
 
@@ -147,6 +125,29 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-16 border-t border-line pt-10">
+          <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+            Education
+          </p>
+
+          <div className="grid gap-5 sm:grid-cols-2 sm:gap-8">
+            {education.map((item) => (
+              <div key={item.school} className="space-y-1">
+                <p className="text-sm font-medium text-ink">
+                  {item.school}
+                </p>
+
+                <p className="text-sm leading-relaxed text-ink-muted">
+                  {item.degree}
+                </p>
+
+                <p className="font-mono text-[11px] tracking-wide text-ink-muted/60">
+                  {item.period}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       <section
