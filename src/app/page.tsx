@@ -2,6 +2,7 @@ import AmbientGlow from "@/components/AmbientGlow";
 import ColorBends from "@/components/ColorBends";
 import FeatureRotator from "@/components/FeatureRotator";
 import LazyVideo from "@/components/LazyVideo";
+import PopupLink from "@/components/PopupLink";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
@@ -234,10 +235,9 @@ export default function Home() {
         <div className="grid gap-7 sm:grid-cols-2">
           {sideProjects.map((project) => (
             <Reveal key={project.name}>
-              <a
+              <PopupLink
                 href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                popup={project.popup}
                 className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
               >
                 <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line">
@@ -271,7 +271,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </a>
+              </PopupLink>
             </Reveal>
           ))}
         </div>

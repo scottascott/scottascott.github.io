@@ -90,5 +90,6 @@ export const sideProjects = [
     url: "https://shiba-run.netlify.app/",
     tags: ["React", "Canvas"],
     video: "/videos/shiba-run.mp4",
+    popup: { maxWidth: 800, height: 300 },
   },
 ];
