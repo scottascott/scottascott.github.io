@@ -5,7 +5,13 @@ import LazyVideo from "@/components/LazyVideo";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
-import { education, experience, profile, projects } from "@/lib/data";
+import {
+  education,
+  experience,
+  profile,
+  projects,
+  sideProjects,
+} from "@/lib/data";
 
 export default function Home() {
   return (
@@ -172,6 +178,61 @@ export default function Home() {
         </div>
         <div className="grid gap-7 sm:grid-cols-2">
           {projects.map((project) => (
+            <Reveal key={project.name}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+              >
+                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
+                    }}
+                  />
+                  <LazyVideo
+                    src={project.video}
+                    className="relative h-full w-full scale-100 object-contain mix-blend-screen transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="px-6 pt-6 pb-7">
+                  <h3 className="mb-2.5 font-serif text-2xl text-ink">
+                    {project.name}
+                  </h3>
+                  <p className="mb-4 text-sm leading-[1.65] text-ink-muted">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-line px-3 py-1 font-mono text-[10.5px] tracking-[0.06em] text-ink-muted"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="side-projects"
+        className="mx-auto max-w-[1200px] overflow-x-hidden px-6 py-28 sm:overflow-x-visible sm:px-12 lg:px-24"
+      >
+        <div className="mb-14">
+          <RevealText className="font-serif font-semibold text-[clamp(2rem,4vw,3rem)] text-ink italic">
+            Side Projects
+          </RevealText>
+        </div>
+        <div className="grid gap-7 sm:grid-cols-2">
+          {sideProjects.map((project) => (
             <Reveal key={project.name}>
               <a
                 href={project.url}

@@ -72,6 +72,9 @@ export const projects = [
     tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
   },
+];
+
+export const sideProjects = [
   {
     name: "Concentration",
     description:
