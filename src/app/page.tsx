@@ -296,13 +296,13 @@ export default function Home() {
             <div className="grid min-w-[280px] gap-3 sm:grid-cols-2">
               <a
                 href={`mailto:${profile.email}`}
-                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-all hover:bg-panel/80 hover:shadow-[0_0_28px_-8px] hover:shadow-cyan/40"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   Email
                 </span>
                 <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
-                  Write me ↗
+                  ↗
                 </span>
               </a>
 
@@ -310,13 +310,13 @@ export default function Home() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-all hover:bg-panel/80 hover:shadow-[0_0_28px_-8px] hover:shadow-amber/40"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   LinkedIn
                 </span>
                 <span className="text-sm text-ink-soft transition-colors group-hover:text-amber">
-                  View profile ↗
+                  ↗
                 </span>
               </a>
 
@@ -324,7 +324,7 @@ export default function Home() {
                 href={profile.githubPersonal}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-all hover:bg-panel/80 hover:shadow-[0_0_28px_-8px] hover:shadow-cyan/40"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   GitHub
@@ -334,7 +334,7 @@ export default function Home() {
                 </span>
 
                 <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
-                  Open ↗
+                  ↗
                 </span>
               </a>
 
@@ -342,7 +342,7 @@ export default function Home() {
                 href={profile.githubWork}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-all hover:bg-panel/80 hover:shadow-[0_0_28px_-8px] hover:shadow-amber/40"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   GitHub
@@ -352,21 +352,21 @@ export default function Home() {
                 </span>
 
                 <span className="text-sm text-ink-soft transition-colors group-hover:text-amber">
-                  Open ↗
+                  ↗
                 </span>
               </a>
 
               <a
                 href={profile.resumeUrl}
                 download
-                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-colors hover:bg-panel/80 sm:col-span-2"
+                className="group flex items-center justify-between rounded border border-line bg-panel/40 px-5 py-4 transition-all hover:bg-panel/80 hover:shadow-[0_0_28px_-8px] hover:shadow-cyan/40 sm:col-span-2"
               >
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
                   Resume
                 </span>
 
                 <span className="text-sm text-ink-soft transition-colors group-hover:text-cyan">
-                  Download PDF ↓
+                  ↓
                 </span>
               </a>
             </div>
