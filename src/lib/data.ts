@@ -63,7 +63,16 @@ export const education = [
   },
 ];
 
-export const projects = [
+export const projects: {
+  name: string;
+  description: string;
+  url: string;
+  tags: string[];
+  video: string;
+  popup?: { maxWidth: number; height: number };
+}[] = [];
+
+export const sideProjects = [
   {
     name: "Crypto View",
     description:
@@ -72,9 +81,6 @@ export const projects = [
     tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
   },
-];
-
-export const sideProjects = [
   {
     name: "Concentration",
     description:
