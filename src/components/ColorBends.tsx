@@ -214,14 +214,14 @@ void main() {
     mix(
       white,
       amber,
-      0.38
+      0.52
     );
 
   vec3 softCyan =
     mix(
       white,
       cyan,
-      0.34
+      0.48
     );
 
   // --------------------------------
@@ -234,26 +234,26 @@ void main() {
   col = mix(
     col,
     softAmber,
-    upperGlow * 0.13
+    upperGlow * 0.19
   );
 
   col = mix(
     col,
     softCyan,
-    lowerGlow * 0.12
+    lowerGlow * 0.17
   );
 
   // Core gets slightly more color
   col = mix(
     col,
     softAmber,
-    upperCore * 0.28
+    upperCore * 0.4
   );
 
   col = mix(
     col,
     softCyan,
-    lowerCore * 0.26
+    lowerCore * 0.37
   );
 
   // --------------------------------
@@ -330,9 +330,9 @@ export default function SoftBends({
   className = "",
   style,
 
-  speed = 0.45,
+  speed = 0.65,
   rotation = 0,
-  autoRotate = 0.25,
+  autoRotate = 0.4,
 
   scale = 1.15,
   frequency = 0.9,
