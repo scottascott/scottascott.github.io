@@ -67,6 +67,7 @@ export const projects: {
   name: string;
   url: string;
   video: string;
+  poster: string;
   ratio: number;
   tile: "wide" | "tall" | "standard";
 }[] = [
@@ -74,6 +75,7 @@ export const projects: {
       name: "VirgoCX Retail Platform",
       url: "https://virgocx.ca/page#/",
       video: "/videos/virgoxc.mp4",
+      poster: "/videos/posters/virgoxc.jpg",
       ratio: 1264 / 720,
       tile: "wide",
     },
@@ -81,6 +83,7 @@ export const projects: {
       name: "VirgoCX Static Page",
       url: "https://virgocx.ca",
       video: "/videos/virgocx-static.mp4",
+      poster: "/videos/posters/virgocx-static.jpg",
       ratio: 720 / 1278,
       tile: "tall",
     },
@@ -88,6 +91,7 @@ export const projects: {
       name: "VirgoPay Portal",
       url: "https://virgopay.co/",
       video: "/videos/virgopay.mp4",
+      poster: "/videos/posters/virgopay.jpg",
       ratio: 720 / 1244,
       tile: "tall",
     },
@@ -95,6 +99,7 @@ export const projects: {
       name: "Virgo Co Learn Page",
       url: "https://learn.virgo.co/",
       video: "/videos/learn-virgo-co.mp4",
+      poster: "/videos/posters/learn-virgo-co.jpg",
       ratio: 724 / 720,
       tile: "standard",
     },
@@ -102,6 +107,7 @@ export const projects: {
       name: "VirgoPay API Doc",
       url: "https://docs.virgopay.co/",
       video: "/videos/virgopay-api-doc.mp4",
+      poster: "/videos/posters/virgopay-api-doc.jpg",
       ratio: 732 / 720,
       tile: "standard",
     },
@@ -109,6 +115,7 @@ export const projects: {
       name: "Virgo Payments Portal",
       url: "https://portal.virgopayments.ca/",
       video: "/videos/virgo-payments.mp4",
+      poster: "/videos/posters/virgo-payments.jpg",
       ratio: 720 / 724,
       tile: "standard",
     },
