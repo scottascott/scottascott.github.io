@@ -27,9 +27,76 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Scott Wang — Senior Software Engineer",
+  metadataBase: new URL("https://scottascott.github.io"),
+
+  title: "Scott Wang | Senior Frontend & Full-Stack Engineer",
+
   description:
-    "Scott Wang — Senior Software Engineer. Frontend craft × full-stack engineering.",
+    "Senior Software Engineer specializing in React, Next.js, TypeScript, and full-stack development. Building real-time trading platforms, payment systems, digital wallets, and scalable fintech products.",
+
+  keywords: [
+    "Scott Wang",
+    "Senior Software Engineer",
+    "Senior Frontend Engineer",
+    "Full-Stack Engineer",
+    "Frontend Developer",
+    "Full-Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "Fintech Engineer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "NestJS",
+    "Real-Time Trading",
+    "Trading Platform",
+    "Payment Systems",
+    "Digital Wallets",
+    "Fintech",
+  ],
+
+  authors: [
+    {
+      name: "Scott Wang",
+      url: "https://scottascott.github.io",
+    },
+  ],
+
+  creator: "Scott Wang",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Scott Wang",
+    title: "Scott Wang | Senior Frontend & Full-Stack Engineer",
+    description:
+      "Senior Software Engineer specializing in React, Next.js, TypeScript, and full-stack development. Building real-time trading platforms, payment systems, digital wallets, and scalable fintech products.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Scott Wang | Senior Frontend & Full-Stack Engineer",
+    description:
+      "Senior Software Engineer specializing in React, Next.js, TypeScript, and full-stack development for trading, payments, digital wallets, and fintech products.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
