@@ -59,7 +59,7 @@ export default function BentoProjectCard({ project }: { project: Project }) {
             alt=""
             fill
             sizes="(min-width: 1024px) 40vw, 100vw"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 brightness-20"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 brightness-50 saturate-[0.85]"
           />
         )}
       </div>

@@ -96,6 +96,14 @@ export const projects: {
       tile: "tall",
     },
     {
+      name: "Virgo Payments Portal",
+      url: "https://portal.virgopayments.ca/",
+      video: "/videos/virgo-payments.mp4",
+      poster: "/videos/posters/virgo-payments.jpg",
+      ratio: 720 / 724,
+      tile: "standard",
+    },
+    {
       name: "Virgo Co Learn Page",
       url: "https://learn.virgo.co/",
       video: "/videos/learn-virgo-co.mp4",
@@ -109,14 +117,6 @@ export const projects: {
       video: "/videos/virgopay-api-doc.mp4",
       poster: "/videos/posters/virgopay-api-doc.jpg",
       ratio: 732 / 720,
-      tile: "standard",
-    },
-    {
-      name: "Virgo Payments Portal",
-      url: "https://portal.virgopayments.ca/",
-      video: "/videos/virgo-payments.mp4",
-      poster: "/videos/posters/virgo-payments.jpg",
-      ratio: 720 / 724,
       tile: "standard",
     },
   ];
