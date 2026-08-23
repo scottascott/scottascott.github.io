@@ -1,4 +1,5 @@
 import AmbientGlow from "@/components/AmbientGlow";
+import BentoProjectCard from "@/components/BentoProjectCard";
 import ColorBends from "@/components/ColorBends";
 import FeatureRotator from "@/components/FeatureRotator";
 import LazyVideo from "@/components/LazyVideo";
@@ -177,47 +178,19 @@ export default function Home() {
             Projects
           </RevealText>
         </div>
-        <div className="grid gap-7 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-7 lg:auto-rows-[280px] lg:grid-flow-dense lg:grid-cols-3">
           {projects.map((project) => (
-            <Reveal key={project.name}>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
-              >
-                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
-                    }}
-                  />
-                  <LazyVideo
-                    src={project.video}
-                    className="relative h-full w-full scale-100 object-contain mix-blend-screen transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </div>
-                <div className="px-6 pt-6 pb-7">
-                  <h3 className="mb-2.5 font-serif text-2xl text-ink">
-                    {project.name}
-                  </h3>
-                  <p className="mb-4 text-sm leading-[1.65] text-ink-muted">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-line px-3 py-1 font-mono text-[10.5px] tracking-[0.06em] text-ink-muted"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
+            <Reveal
+              key={project.name}
+              className={
+                project.tile === "wide"
+                  ? "lg:col-span-2"
+                  : project.tile === "tall"
+                    ? "lg:row-span-2"
+                    : undefined
+              }
+            >
+              <BentoProjectCard project={project} />
             </Reveal>
           ))}
         </div>
