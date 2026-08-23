@@ -71,11 +71,10 @@ export default function BentoProjectCard({ project }: { project: Project }) {
           {project.name}
         </h3>
         <div
-          className={`mt-2 max-h-40 translate-y-0 overflow-hidden opacity-100 transition-all duration-500 ease-out ${
-            playing
+          className={`mt-2 max-h-40 translate-y-0 overflow-hidden opacity-100 transition-all duration-500 ease-out ${playing
               ? "lg:mt-0 lg:max-h-0 lg:translate-y-2 lg:opacity-0"
               : "lg:mt-2 lg:max-h-40 lg:translate-y-0 lg:opacity-100"
-          }`}
+            }`}
         >
           <p className="mb-1.5 font-mono text-[10px] tracking-[0.14em] text-cyan uppercase">
             {project.type}
@@ -95,6 +94,160 @@ export default function BentoProjectCard({ project }: { project: Project }) {
           </div>
         </div>
       </div>
+
+      {/* =========================================================
+          STRONGER HOVER EDGE EFFECT
+      ========================================================= */}
+
+      {/* Inner frame */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-30
+          rounded-[inherit]
+
+          ring-1
+          ring-inset
+          ring-white/[0.05]
+
+          transition-all
+          duration-500
+
+          group-hover:ring-white/[0.12]
+        "
+      />
+
+      {/* Cyan — top edge */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          top-0
+          left-[4%]
+          z-30
+
+          h-[1.5px]
+          w-[46%]
+
+          bg-gradient-to-r
+          from-transparent
+          via-cyan/0
+          to-transparent
+
+          opacity-0
+          blur-[0.2px]
+
+          transition-all
+          duration-700
+          ease-out
+
+          group-hover:left-[8%]
+          group-hover:w-[58%]
+          group-hover:via-cyan/90
+          group-hover:opacity-100
+
+          group-hover:drop-shadow-[0_0_5px_var(--cyan)]
+        "
+      />
+
+      {/* Cyan — left edge */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          top-[4%]
+          left-0
+          z-30
+
+          h-[32%]
+          w-[1.5px]
+
+          bg-gradient-to-b
+          from-transparent
+          via-cyan/0
+          to-transparent
+
+          opacity-0
+
+          transition-all
+          duration-700
+          ease-out
+
+          group-hover:top-[8%]
+          group-hover:h-[46%]
+          group-hover:via-cyan/60
+          group-hover:opacity-100
+
+          group-hover:drop-shadow-[0_0_5px_var(--cyan)]
+        "
+      />
+
+      {/* Amber — bottom edge */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[4%]
+          bottom-0
+          z-30
+
+          h-[1.5px]
+          w-[42%]
+
+          bg-gradient-to-r
+          from-transparent
+          via-amber/0
+          to-transparent
+
+          opacity-0
+          blur-[0.2px]
+
+          transition-all
+          duration-700
+          ease-out
+
+          group-hover:right-[8%]
+          group-hover:w-[54%]
+          group-hover:via-amber/85
+          group-hover:opacity-100
+
+          group-hover:drop-shadow-[0_0_5px_var(--amber)]
+        "
+      />
+
+      {/* Amber — right edge */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          bottom-[4%]
+          z-30
+
+          h-[30%]
+          w-[1.5px]
+
+          bg-gradient-to-t
+          from-transparent
+          via-amber/0
+          to-transparent
+
+          opacity-0
+
+          transition-all
+          duration-700
+          ease-out
+
+          group-hover:bottom-[8%]
+          group-hover:h-[44%]
+          group-hover:via-amber/60
+          group-hover:opacity-100
+
+          group-hover:drop-shadow-[0_0_5px_var(--amber)]
+        "
+      />
     </a>
   );
 }
