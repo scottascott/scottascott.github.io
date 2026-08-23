@@ -43,7 +43,7 @@ export default function BentoProjectCard({ project }: { project: Project }) {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), #0d0b09",
+              "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), var(--media-base)",
           }}
         />
         {playing ? (
