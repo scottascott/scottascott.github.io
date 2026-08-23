@@ -50,6 +50,7 @@ uniform float uParallax;
 uniform float uNoise;
 
 uniform vec3 uBase;
+uniform float uAccentStrength;
 
 varying vec2 vUv;
 
@@ -236,26 +237,26 @@ void main() {
   col = mix(
     col,
     softAmber,
-    upperGlow * 0.19
+    clamp(upperGlow * 0.19 * uAccentStrength, 0.0, 1.0)
   );
 
   col = mix(
     col,
     softCyan,
-    lowerGlow * 0.17
+    clamp(lowerGlow * 0.17 * uAccentStrength, 0.0, 1.0)
   );
 
   // Core gets slightly more color
   col = mix(
     col,
     softAmber,
-    upperCore * 0.4
+    clamp(upperCore * 0.4 * uAccentStrength, 0.0, 1.0)
   );
 
   col = mix(
     col,
     softCyan,
-    lowerCore * 0.37
+    clamp(lowerCore * 0.37 * uAccentStrength, 0.0, 1.0)
   );
 
   // --------------------------------
@@ -337,6 +338,15 @@ function getThemeBase(): [number, number, number] {
   return isLight
     ? [0x17 / 255, 0x13 / 255, 0x0f / 255]
     : [1, 1, 1]
+}
+
+function getAccentStrength(): number {
+  if (typeof document === "undefined") return 1
+
+  const isLight =
+    document.documentElement.getAttribute("data-theme") === "light"
+
+  return isLight ? 1.9 : 1
 }
 
 export default function SoftBends({
@@ -492,6 +502,11 @@ export default function SoftBends({
                 ...getThemeBase()
               ),
           },
+
+          uAccentStrength: {
+            value:
+              getAccentStrength(),
+          },
         },
       })
 
@@ -617,6 +632,11 @@ export default function SoftBends({
         new THREE.Color(r, g, b),
         1
       )
+
+      material.uniforms
+        .uAccentStrength
+        .value =
+        getAccentStrength()
     }
 
     const themeObserver =
