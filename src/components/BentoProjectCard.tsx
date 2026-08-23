@@ -62,7 +62,7 @@ export default function BentoProjectCard({ project }: { project: Project }) {
             alt=""
             fill
             sizes="(min-width: 1024px) 40vw, 100vw"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 brightness-50 saturate-[0.85]"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 brightness-90 saturate-[0.85]"
           />
         )}
       </div>
@@ -72,8 +72,8 @@ export default function BentoProjectCard({ project }: { project: Project }) {
         </h3>
         <div
           className={`mt-2 max-h-40 translate-y-0 overflow-hidden opacity-100 transition-all duration-500 ease-out ${playing
-              ? "lg:mt-0 lg:max-h-0 lg:translate-y-2 lg:opacity-0"
-              : "lg:mt-2 lg:max-h-40 lg:translate-y-0 lg:opacity-100"
+            ? "lg:mt-0 lg:max-h-0 lg:translate-y-2 lg:opacity-0"
+            : "lg:mt-2 lg:max-h-40 lg:translate-y-0 lg:opacity-100"
             }`}
         >
           <p className="mb-1.5 font-mono text-[10px] tracking-[0.14em] text-cyan uppercase">
