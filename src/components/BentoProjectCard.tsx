@@ -5,6 +5,9 @@ import { useState } from "react";
 
 type Project = {
   name: string;
+  type: string;
+  description: string;
+  tech: string[];
   url: string;
   video: string;
   poster: string;
@@ -63,10 +66,34 @@ export default function BentoProjectCard({ project }: { project: Project }) {
           />
         )}
       </div>
-      <div className="relative px-5 py-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:bg-gradient-to-t lg:from-bg lg:via-bg/70 lg:to-transparent lg:px-5 lg:pt-10 lg:pb-4">
+      <div className="relative px-5 py-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:bg-gradient-to-t lg:from-bg lg:via-bg/80 lg:to-transparent lg:px-5 lg:pt-12 lg:pb-4">
         <h3 className="font-serif text-lg text-ink lg:text-xl">
           {project.name}
         </h3>
+        <div
+          className={`mt-2 max-h-40 translate-y-0 overflow-hidden opacity-100 transition-all duration-500 ease-out ${
+            playing
+              ? "lg:mt-0 lg:max-h-0 lg:translate-y-2 lg:opacity-0"
+              : "lg:mt-2 lg:max-h-40 lg:translate-y-0 lg:opacity-100"
+          }`}
+        >
+          <p className="mb-1.5 font-mono text-[10px] tracking-[0.14em] text-cyan uppercase">
+            {project.type}
+          </p>
+          <p className="text-xs leading-relaxed text-ink-muted">
+            {project.description}
+          </p>
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {project.tech.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-line-strong bg-bg/40 px-2.5 py-1 font-mono text-[10px] tracking-[0.06em] text-ink-soft"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </a>
   );

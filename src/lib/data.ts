@@ -65,6 +65,9 @@ export const education = [
 
 export const projects: {
   name: string;
+  type: string;
+  description: string;
+  tech: string[];
   url: string;
   video: string;
   poster: string;
@@ -73,6 +76,10 @@ export const projects: {
 }[] = [
     {
       name: "VirgoCX Retail Platform",
+      type: "Trading Platform",
+      description:
+        "Real-time crypto trading, wallet, portfolio and KYC experiences.",
+      tech: ["React", "WebSocket", "TradingView"],
       url: "https://virgocx.ca/page#/",
       video: "/videos/virgoxc.mp4",
       poster: "/videos/posters/virgoxc.jpg",
@@ -80,7 +87,10 @@ export const projects: {
       tile: "wide",
     },
     {
-      name: "VirgoCX Static Page",
+      name: "VirgoCX Web",
+      type: "Marketing / SEO",
+      description: "Global marketing site with data-driven crypto pages.",
+      tech: ["Next.js", "SSR", "tRPC", "Prisma"],
       url: "https://virgocx.ca",
       video: "/videos/virgocx-static.mp4",
       poster: "/videos/posters/virgocx-static.jpg",
@@ -88,7 +98,11 @@ export const projects: {
       tile: "tall",
     },
     {
-      name: "VirgoPay Portal",
+      name: "VirgoPAY",
+      type: "Payment Platform",
+      description:
+        "Stablecoin on/off-ramp and cross-border payment experiences.",
+      tech: ["React", "REST API", "Payment Widget"],
       url: "https://virgopay.co/",
       video: "/videos/virgopay.mp4",
       poster: "/videos/posters/virgopay.jpg",
@@ -97,6 +111,9 @@ export const projects: {
     },
     {
       name: "Virgo Payments Portal",
+      type: "Business Platform",
+      description: "Institutional payment, account and compliance workflows.",
+      tech: ["React", "REST API", "KYB"],
       url: "https://portal.virgopayments.ca/",
       video: "/videos/virgo-payments.mp4",
       poster: "/videos/posters/virgo-payments.jpg",
@@ -104,7 +121,10 @@ export const projects: {
       tile: "standard",
     },
     {
-      name: "Virgo Co Learn Page",
+      name: "Virgo Learn",
+      type: "Content Platform",
+      description: "Educational content platform for crypto users.",
+      tech: ["WordPress"],
       url: "https://learn.virgo.co/",
       video: "/videos/learn-virgo-co.mp4",
       poster: "/videos/posters/learn-virgo-co.jpg",
@@ -112,7 +132,11 @@ export const projects: {
       tile: "standard",
     },
     {
-      name: "VirgoPay API Doc",
+      name: "VirgoPAY API Docs",
+      type: "Developer Platform",
+      description:
+        "Developer documentation for payment and on/off-ramp integrations.",
+      tech: ["REST API", "Widget SDK", "API Docs"],
       url: "https://docs.virgopay.co/",
       video: "/videos/virgopay-api-doc.mp4",
       poster: "/videos/posters/virgopay-api-doc.jpg",
