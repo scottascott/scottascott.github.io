@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
+import Script from "next/script";
 import AmbientGlow from "@/components/AmbientGlow";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -36,8 +37,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${fraunces.variable} ${jetbrainsMono.variable} ${manrope.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col overflow-x-hidden bg-bg text-ink-soft">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`try {
+            var t = localStorage.getItem("theme");
+            document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+          } catch (e) {}`}
+        </Script>
         <div className="fixed inset-0 z-0 sm:hidden">
           <AmbientGlow />
         </div>

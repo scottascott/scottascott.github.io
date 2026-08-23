@@ -49,6 +49,8 @@ uniform float uParallax;
 
 uniform float uNoise;
 
+uniform vec3 uBase;
+
 varying vec2 vUv;
 
 void main() {
@@ -193,7 +195,7 @@ void main() {
   // Soft theme colors
   // --------------------------------
 
-  vec3 white = vec3(1.0);
+  vec3 white = uBase;
 
   // Soft amber
   vec3 amber = vec3(
@@ -325,6 +327,17 @@ void main() {
     );
 }
 `
+
+function getThemeBase(): [number, number, number] {
+  if (typeof document === "undefined") return [1, 1, 1]
+
+  const isLight =
+    document.documentElement.getAttribute("data-theme") === "light"
+
+  return isLight
+    ? [0x17 / 255, 0x13 / 255, 0x0f / 255]
+    : [1, 1, 1]
+}
 
 export default function SoftBends({
   className = "",
@@ -472,6 +485,13 @@ export default function SoftBends({
           uNoise: {
             value: noise,
           },
+
+          uBase: {
+            value:
+              new THREE.Vector3(
+                ...getThemeBase()
+              ),
+          },
         },
       })
 
@@ -508,8 +528,15 @@ export default function SoftBends({
       )
     )
 
+    const [baseR, baseG, baseB] =
+      getThemeBase()
+
     renderer.setClearColor(
-      0xffffff,
+      new THREE.Color(
+        baseR,
+        baseG,
+        baseB
+      ),
       1
     )
 
@@ -571,6 +598,41 @@ export default function SoftBends({
         resize
       )
     }
+
+    // -------------------------
+    // Theme (light / dark)
+    // -------------------------
+
+    const applyTheme = () => {
+      const [r, g, b] =
+        getThemeBase()
+
+        ; (
+          material.uniforms
+            .uBase
+            .value as THREE.Vector3
+        ).set(r, g, b)
+
+      renderer.setClearColor(
+        new THREE.Color(r, g, b),
+        1
+      )
+    }
+
+    const themeObserver =
+      new MutationObserver(
+        applyTheme
+      )
+
+    themeObserver.observe(
+      document.documentElement,
+      {
+        attributes: true,
+        attributeFilter: [
+          "data-theme",
+        ],
+      }
+    )
 
     // -------------------------
     // Mouse
@@ -732,6 +794,8 @@ export default function SoftBends({
         "pointerleave",
         handlePointerLeave
       )
+
+      themeObserver.disconnect()
 
       geometry.dispose()
 

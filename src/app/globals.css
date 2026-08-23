@@ -13,6 +13,23 @@
   --cyan-dim: rgb(69 230 201 / 0.14);
   --amber: #e6a34a;
   --amber-dim: rgb(230 163 74 / 0.16);
+  --video-blend: screen;
+}
+
+[data-theme="light"] {
+  --bg: #faf7f1;
+  --bg-soft: #f1ebe0;
+  --panel: 255 255 255;
+  --line: rgb(23 19 15 / 0.1);
+  --line-strong: rgb(23 19 15 / 0.18);
+  --ink: #17130f;
+  --ink-soft: #4a4237;
+  --ink-muted: #7a6f60;
+  --cyan: #0e8a74;
+  --cyan-dim: rgb(14 138 116 / 0.12);
+  --amber: #a8641a;
+  --amber-dim: rgb(168 100 26 / 0.14);
+  --video-blend: normal;
 }
 
 @theme inline {
@@ -37,6 +54,10 @@ body {
   background: var(--bg);
   color: var(--ink-soft);
   font-family: var(--font-sans);
+}
+
+.video-blend {
+  mix-blend-mode: var(--video-blend);
 }
 
 @keyframes blink {

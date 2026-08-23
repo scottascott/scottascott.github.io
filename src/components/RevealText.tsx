@@ -19,15 +19,10 @@ const RevealText = ({
     offset: ["start 90%", "end 10%"],
   })
 
-  const color = useTransform(
+  const opacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    [
-      "rgba(255,255,255,0.2)",
-      "rgba(255,255,255,1)",
-      "rgba(255,255,255,1)",
-      "rgba(255,255,255,0.2)",
-    ]
+    [0.2, 1, 1, 0.2]
   )
 
   const skewX = useTransform(
@@ -58,7 +53,7 @@ const RevealText = ({
     <motion.div
       ref={ref}
       style={{
-        color,
+        opacity,
         skewX,
         scaleX,
         letterSpacing,

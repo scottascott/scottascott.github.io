@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useLenis } from "lenis/react";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { profile } from "@/lib/data";
 
 const links = [
@@ -60,6 +61,7 @@ export default function NavBar() {
           >
             Resume ↓
           </a>
+          <ThemeToggle />
         </div>
 
         <button
@@ -102,14 +104,15 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
-          <div className="border-t border-line px-6 py-4">
+          <div className="flex items-center gap-3 border-t border-line px-6 py-4">
             <a
               href={profile.resumeUrl}
               download
-              className="block rounded-full border border-line-strong px-4 py-2.5 text-center font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase transition-colors hover:border-cyan hover:text-cyan"
+              className="block flex-1 rounded-full border border-line-strong px-4 py-2.5 text-center font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase transition-colors hover:border-cyan hover:text-cyan"
             >
               Resume ↓
             </a>
+            <ThemeToggle className="h-10 w-10" />
           </div>
         </div>
       )}

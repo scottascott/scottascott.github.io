@@ -223,7 +223,7 @@ export default function Home() {
                   />
                   <LazyVideo
                     src={project.video}
-                    className="relative h-full w-full scale-100 object-contain mix-blend-screen transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="video-blend relative h-full w-full scale-100 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                   />
                 </div>
                 <div className="px-6 pt-6 pb-7">
