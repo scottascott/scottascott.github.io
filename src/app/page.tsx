@@ -205,13 +205,13 @@ export default function Home() {
             Side Projects
           </RevealText>
         </div>
-        <div className="grid gap-7 sm:grid-cols-2">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-7">
           {sideProjects.map((project) => (
-            <Reveal key={project.name}>
+            <Reveal key={project.name} className="h-full">
               <PopupLink
                 href={project.url}
                 popup={project.popup}
-                className="group block overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+                className="group flex h-full flex-col overflow-hidden rounded border border-line bg-panel/50 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
               >
                 <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line">
                   <div
