@@ -153,6 +153,7 @@ export const sideProjects = [
     url: "https://crypto-view-git-main-scottascotts-projects.vercel.app/",
     tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
+    videoAlpha: "/videos/alpha/crypto-view.webm",
   },
   {
     name: "Concentration",
@@ -161,6 +162,7 @@ export const sideProjects = [
     url: "https://concentration-puce.vercel.app/",
     tags: ["React"],
     video: "/videos/concentration.mp4",
+    videoAlpha: "/videos/alpha/concentration.webm",
   },
   {
     name: "Crypto Shiba Run",
@@ -169,6 +171,7 @@ export const sideProjects = [
     url: "https://shiba-run.netlify.app/",
     tags: ["React", "Canvas"],
     video: "/videos/shiba-run.mp4",
+    videoAlpha: "/videos/alpha/shiba-run.webm",
     popup: { maxWidth: 800, height: 300 },
   },
 ];

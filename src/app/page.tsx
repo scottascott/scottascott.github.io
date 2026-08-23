@@ -1,8 +1,8 @@
+import AlphaVideo from "@/components/AlphaVideo";
 import AmbientGlow from "@/components/AmbientGlow";
 import BentoProjectCard from "@/components/BentoProjectCard";
 import ColorBends from "@/components/ColorBends";
 import FeatureRotator from "@/components/FeatureRotator";
-import LazyVideo from "@/components/LazyVideo";
 import PopupLink from "@/components/PopupLink";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
@@ -221,9 +221,10 @@ export default function Home() {
                         "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), var(--media-base)",
                     }}
                   />
-                  <LazyVideo
-                    src={project.video}
-                    className="video-blend relative h-full w-full scale-100 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                  <AlphaVideo
+                    webmSrc={project.videoAlpha}
+                    mp4Src={project.video}
+                    className="relative h-full w-full scale-100 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                   />
                 </div>
                 <div className="px-6 pt-6 pb-7">
