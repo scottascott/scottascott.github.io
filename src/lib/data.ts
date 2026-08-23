@@ -151,6 +151,7 @@ export const sideProjects = [
     description:
       "A crypto price tracker and dashboard for browsing cryptocurrency prices and market data.",
     url: "https://crypto-view-git-main-scottascotts-projects.vercel.app/",
+    repo: "https://github.com/scottascott/crypto-view",
     tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
     videoAlpha: "/videos/alpha/crypto-view.webm",
@@ -160,6 +161,7 @@ export const sideProjects = [
     description:
       "A concentration-style memory matching card game built as a fun side project.",
     url: "https://concentration-puce.vercel.app/",
+    repo: "https://github.com/scottascott/concentration",
     tags: ["React"],
     video: "/videos/concentration.mp4",
     videoAlpha: "/videos/alpha/concentration.webm",
