@@ -1,40 +1,59 @@
 # scottascott.github.io
 
-My personal website — resume, projects, and basic info.
+Personal site for Scott Wang — résumé, work history, and projects, deployed at [scottascott.github.io](https://scottascott.github.io).
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A single-page, dark-editorial-fintech-themed site with a WebGL hero effect, scroll-driven reveal animations, a bento-style project grid, and light/dark theming.
 
-## Getting Started
+## Stack
 
-First, run the development server:
+- [Next.js](https://nextjs.org) 16 (App Router), statically exported
+- React 19 + TypeScript
+- Tailwind CSS 4
+- [Framer Motion](https://motion.dev) for scroll-linked reveals
+- [Lenis](https://lenis.darkroom.engineering) for smooth scrolling
+- [Three.js](https://threejs.org) for the WebGL hero name effect
+- Deployed to GitHub Pages via GitHub Actions
+
+## Features
+
+- Dark / light theme toggle (persisted to `localStorage`, no flash on load)
+- WebGL shader masked to the hero name, theme-aware color and intensity
+- Scroll-triggered reveal and parallax-style text animations
+- Bento-grid Projects section — tile size (wide / tall / standard) auto-picked from each project video's aspect ratio, `grid-flow-dense` packing
+- Project preview videos: hover-to-play with a poster fallback on desktop, tap-to-play-then-navigate on mobile
+- Alpha-channel (transparent background) WebM video previews for Side Projects, with an MP4 + blend-mode fallback for browsers without VP9 alpha support
+- Responsive layout throughout, including a mobile nav menu and auto-fit project grid
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # static export to ./out
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Content (résumé, experience, projects) lives in [`src/lib/data.ts`](src/lib/data.ts) — most updates are just editing that file.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds a static export (`output: "export"` in `next.config.ts`) and publishes it to GitHub Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/            root layout, global styles, the single page (page.tsx)
+  components/     NavBar, ThemeToggle, ColorBends (WebGL hero), BentoProjectCard,
+                  AlphaVideo, PopupLink, Reveal / RevealText (scroll animations), ...
+  lib/data.ts     all site content — profile, experience, projects, side projects
+public/
+  videos/         project preview videos (mp4 + poster jpgs)
+  videos/alpha/   transparent-background WebM previews
+  videos/posters/ poster frames for the bento project cards
+```
