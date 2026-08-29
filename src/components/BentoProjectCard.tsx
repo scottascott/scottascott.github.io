@@ -54,6 +54,10 @@ export default function BentoProjectCard({ project }: { project: Project }) {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            x5-video-player-type="h5-page"
+            x5-video-player-fullscreen="true"
             className="relative h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
         ) : (

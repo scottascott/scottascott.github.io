@@ -19,7 +19,11 @@ export default function AlphaVideo({
   const [supportsAlpha, setSupportsAlpha] = useState(true);
 
   useEffect(() => {
+    // Must run post-mount, not as a useState lazy initializer: the server
+    // render has no `document` to detect codec support with, so the client's
+    // first render has to match that same default before correcting it here.
     const probe = document.createElement("video");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSupportsAlpha(probe.canPlayType('video/webm; codecs="vp9"') !== "");
   }, []);
 
@@ -83,6 +87,10 @@ export default function AlphaVideo({
         loop
         muted
         playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5-page"
+        x5-video-player-fullscreen="true"
         preload="none"
         className={`video-blend ${className}`}
       />
@@ -97,6 +105,10 @@ export default function AlphaVideo({
         loop
         muted
         playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5-page"
+        x5-video-player-fullscreen="true"
         preload="none"
         className="hidden"
         aria-hidden="true"

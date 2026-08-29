@@ -10,7 +10,11 @@ export default function ThemeToggle({
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
+    // Must run post-mount: the inline theme-init script sets data-theme
+    // before hydration, but only client-side, so the server-rendered
+    // default has to match the client's first render before correcting it.
     const current = document.documentElement.getAttribute("data-theme");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(current === "light" ? "light" : "dark");
   }, []);
 
