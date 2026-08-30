@@ -151,7 +151,7 @@ export const sideProjects = [
     description:
       "An e-commerce storefront and admin CMS for a vape shop — product catalog, cart and checkout.",
     url: "https://wei-vape-store.vercel.app/",
-    tags: ["Next.js", "Prisma", "NextAuth"],
+    tags: ["PostgreSQL", "Prisma", "NextAuth"],
     orbit: true,
   },
   {
