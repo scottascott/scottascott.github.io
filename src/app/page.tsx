@@ -7,6 +7,7 @@ import PopupLink from "@/components/PopupLink";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import TimelineProgress from "@/components/TimelineProgress";
+import VapeOrbit from "@/components/VapeOrbit";
 import {
   education,
   experience,
@@ -222,11 +223,18 @@ export default function Home() {
                           "radial-gradient(circle at 25% 25%, var(--cyan-dim), transparent 55%), radial-gradient(circle at 75% 70%, var(--amber-dim), transparent 55%), var(--media-base)",
                       }}
                     />
-                    <AlphaVideo
-                      webmSrc={project.videoAlpha}
-                      mp4Src={project.video}
-                      className="relative h-full w-full scale-100 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
+                    {project.orbit ? (
+                      <VapeOrbit />
+                    ) : (
+                      project.video &&
+                      project.videoAlpha && (
+                        <AlphaVideo
+                          webmSrc={project.videoAlpha}
+                          mp4Src={project.video}
+                          className="relative h-full w-full scale-100 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                      )
+                    )}
                   </div>
                 </PopupLink>
                 <div className="flex flex-1 flex-col px-6 pt-6 pb-7">

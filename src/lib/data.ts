@@ -147,6 +147,14 @@ export const projects: {
 
 export const sideProjects = [
   {
+    name: "Wei's Vape Store",
+    description:
+      "An e-commerce storefront and admin CMS for a vape shop — product catalog, cart and checkout.",
+    url: "https://wei-vape-store.vercel.app/",
+    tags: ["Next.js", "Prisma", "NextAuth"],
+    orbit: true,
+  },
+  {
     name: "Crypto View",
     description:
       "A crypto price tracker and dashboard for browsing cryptocurrency prices and market data.",
