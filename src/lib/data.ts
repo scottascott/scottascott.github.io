@@ -15,7 +15,7 @@ export const experience = [
   {
     company: "VirgoCX",
     role: "Senior Frontend Developer",
-    period: "December 2021 – Present",
+    period: "December 2021 – September 2026",
     location: "Toronto, Ontario, Canada",
     bullets: [
       "Led frontend development across production fintech products spanning cryptocurrency trading, payments, digital wallets, and wealth management using React, Next.js, and TypeScript.",
