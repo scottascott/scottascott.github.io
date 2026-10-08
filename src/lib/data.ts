@@ -15,7 +15,7 @@ export const experience = [
   {
     company: "VirgoCX",
     role: "Senior Frontend Developer",
-    period: "December 2021 – September 2026",
+    period: "Dec 2021 – Sep 2026",
     location: "Toronto, Ontario, Canada",
     bullets: [
       "Led frontend development across production fintech products spanning cryptocurrency trading, payments, digital wallets, and wealth management using React, Next.js, and TypeScript.",
@@ -28,7 +28,7 @@ export const experience = [
   {
     company: "Wuhan Duofen Art School",
     role: "Full-Stack Developer",
-    period: "January 2016 – May 2017",
+    period: "Jan 2016 – May 2017",
     location: "Wuhan, Hubei, China",
     bullets: [
       "Developed a full-stack education platform supporting online courses, school content, tutoring schedules, forums, and student services.",
@@ -40,7 +40,7 @@ export const experience = [
   {
     company: "PwC",
     role: "Senior Software Engineer",
-    period: "November 2013 – November 2015",
+    period: "Nov 2013 – Nov 2015",
     location: "Shanghai, China",
     bullets: [
       "Developed enterprise reporting and internal business applications for clients in the insurance and financial services sectors.",
