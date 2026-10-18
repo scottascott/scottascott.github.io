@@ -147,6 +147,15 @@ export const projects: {
 
 export const sideProjects = [
   {
+    name: "Puzzimo Game Hub",
+    description:
+      "A multilingual mini-games hub with guest accounts and global and country leaderboards.",
+    url: "https://puzzimo.com/",
+    tags: ["Next.js", "PostgreSQL", "Redis"],
+    video: "/videos/puzzimo.mp4",
+    videoAlpha: "/videos/alpha/puzzimo.webm",
+  },
+  {
     name: "Wei's Vape Store",
     description:
       "An e-commerce storefront and admin CMS for a vape shop.",
