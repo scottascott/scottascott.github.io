@@ -145,7 +145,7 @@ export const projects: {
     },
   ];
 
-export const sideProjects = [
+const allSideProjects = [
   {
     name: "Puzzimo Game Hub",
     description:
@@ -180,6 +180,7 @@ export const sideProjects = [
       "A concentration-style memory matching card game built as a fun side project.",
     url: "https://concentration-puce.vercel.app/",
     repo: "https://github.com/scottascott/concentration",
+    hidden: true,
     tags: ["React"],
     video: "/videos/concentration.mp4",
     videoAlpha: "/videos/alpha/concentration.webm",
@@ -193,5 +194,8 @@ export const sideProjects = [
     video: "/videos/shiba-run.mp4",
     videoAlpha: "/videos/alpha/shiba-run.webm",
     popup: { maxWidth: 800, height: 300 },
+    hidden: true,
   },
 ];
+
+export const sideProjects = allSideProjects.filter((project) => !project.hidden);
