@@ -156,15 +156,6 @@ const allSideProjects = [
     videoAlpha: "/videos/alpha/puzzimo.webm",
   },
   {
-    name: "Wei's Vape Store",
-    description:
-      "An e-commerce storefront and admin CMS for a vape shop.",
-    url: "https://wei-vape-store.vercel.app/",
-    repo: "https://github.com/scottascott/wei-vape-store",
-    tags: ["NextAuth", "PostgreSQL", "Prisma"],
-    orbit: true,
-  },
-  {
     name: "Crypto View",
     description:
       "A crypto price tracker and dashboard for browsing cryptocurrency prices and market data.",
@@ -173,6 +164,15 @@ const allSideProjects = [
     tags: ["Next.js", "tRPC", "Prisma"],
     video: "/videos/crypto-view.mp4",
     videoAlpha: "/videos/alpha/crypto-view.webm",
+  },
+  {
+    name: "Wei's Vape Store",
+    description:
+      "An e-commerce storefront and admin CMS for a vape shop.",
+    url: "https://wei-vape-store.vercel.app/",
+    repo: "https://github.com/scottascott/wei-vape-store",
+    tags: ["NextAuth", "PostgreSQL", "Prisma"],
+    orbit: true,
   },
   {
     name: "Concentration",
